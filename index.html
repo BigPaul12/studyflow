@@ -1,0 +1,1289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+<title>StudyFlow</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAEb0lEQVR4nL2XW4hWVRTHf2vvfb6bMzpDRhdzjNK8PJSignQxtHSCBC/xEVEvBfZYdDEIhCHSyAiMAhOhlx5iRKggsFBHyyBJR1SicfKlGifCSPMy33XO3quHM5+Ujt+cdJr/22Hvs////V97rb2XAEDRwi5/++xls52LXgIeQ5kGagHhxqBAAPkdkb0h9lsHf9r3A3QZeCMIxaJl1y7fMefR9Vj7jhHTpupR1Rvk/TdEBBGLaigF7zee7t/3HsWiFYAZcx95TqLcRxoPoxo8IoYb3/mVUFSDiLHGZYjrlZdP9/dslTvmPTzTkDmBSA4NgJhxJr4SAVAQ9cIiI5p5zRhXQINOADmAAcUY60wIG40Ij6v6iSIfgdgQvIpIpwNuVdXxjncKqACtBpjAnV8Nl2aSAMZACElSGwER8GFkXEZPmZAik8cU0CC6UBbykRJZGKolQlqyoAq1YfBXkilko0TsdQsQIPaQdfDqimGWzgoUMspv54XuI46efoM1sKEz5r5pgUoMVpKd5yLY8pXjxKChkLm2G80FCAx7eHvdMM8siTk3JJTrMH96YNW9nvUfZ+judSyYHlh2T+CvSuJIUChkYHJ+FGfSChCBWgzT2pQHZ3pKVej6IuKTw47tT9dYfGdg/nSluxcuVSFG2XEwYvtBR1tBEYGLFaEQNT8LTR0wIyIah23pLM+JQcOLOzPUPUzJQWtWUcAZiAOU6kIuSs5JY42mHNcaUIXIwh+XhB0HI7wKxUWeL1+osvP5Ok8t9lTjpK46A0MV4dn7Y45trPD961WWz/aU62DHSPKmDgSFfAY+OOA4cMqwboGnc55nUYfngbs9t02J2Lw7wkhCdOaiMHhemJyHCxXBmiRbrsuBywIiWLvAc9dU5cNvHEu25OjudcQeVs71TMoodQ/5nPLpMcsT27M8uSND768miX+4Tgf+Gbq31tSZcYvy2RHLtm8c7QUl4+DPklCLBTRJV2eT2tCSTb7TvCiuKUBJFjxXgk27IzavGWb1fM/ahR4CDJwTtn3tCAqtOXAtSs4lBzZoOvKmAiCxb1IWPj9uOXXGsHSWZ2qrcLYk7O2z/HJWuKkFuo9GHD3tOPSzId+k6IwG6Zi3YszpRqAyDJU6DJXKhBAoZJIKqZqk3nAM+Szc3FZIikhKpLqMgkLOKZPzjnWdD5HPZYlDoHGLG1GsEar1mG8PHadWqyMpRaS7DUXwPmCcY/Wq5bS3TcbH/jKJohhjKJer9B4/SblSJXIu1cM2VQgaUFUuDZUT36/aoQJCy6Q8xqR/YqRyoAERoX1Ka9M5fqzEH0VAIj0l/ivBWDCqnBERJX3qjhNEUS0ZgT0iVkiaggmCejFGgP0G8VuCxvWRKEyECAWjqkGDmE1moG9/HyFssC5rAYOq//+ok7Wtyzi87xrs23PYUCzagZM978dx7RURUzHW2fFvCxMY6yxiYh9Xuwb6e9683Jw22vOOOSsX4mSDaFihSvvIf+OhRkEugBxA9N2BH/d812jP/wbIUOOqo2h40QAAAABJRU5ErkJggg==" />
+<link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAIAAAB7GkOtAAAZkElEQVR4nO3debgcZZ3o8aruPn1OVkI2E3gSEkgkhn0XRZQAExWJjqzKKKgjiqiz3ZlxvI4z3tHrXMfRKwyiIoIjYHAYLgqiiIOEHcIaCChZWBLWJGQlJ6dPd9f9A+9lMUCWc7q6+vf5PPzB4yPpSi/vt+qtqrfSyTOPTgCIp5T3BgCQDwEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICg/i8wxShLbL6Q4gAAAABJRU5ErkJggg==" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="StudyFlow">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#1E2A45">
+<style>
+  html, body { margin: 0; padding: 0; background: #FAF9F6; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Inter', system-ui, sans-serif; }
+</style>
+</head>
+<body>
+<div id="root">
+  <div style="font-family: sans-serif; padding: 40px; text-align: center; color: #6B6F7B;">Loading StudyFlow…</div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/react@18/umd/react.production.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@babel/standalone@7/babel.min.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+
+<script type="text/babel" data-presets="react">
+const { useState, useMemo, useEffect, useRef } = React;
+
+/* ---------------------------------------------------------
+   FIREBASE SYNC — same project, existing sync codes still work.
+--------------------------------------------------------- */
+const firebaseConfig = {
+  apiKey: "AIzaSyDnPxPaEUR83W3W0wzv5jI1RYjkhPSIqF0",
+  authDomain: "studyflow-c35ec.firebaseapp.com",
+  projectId: "studyflow-c35ec",
+  storageBucket: "studyflow-c35ec.firebasestorage.app",
+  messagingSenderId: "825206860004",
+  appId: "1:825206860004:web:79c4ff996c9937645e24f1",
+};
+const firebaseReady = firebaseConfig.apiKey && !firebaseConfig.apiKey.startsWith("PASTE_");
+let db = null;
+if (firebaseReady) {
+  try { firebase.initializeApp(firebaseConfig); db = firebase.firestore(); }
+  catch (e) { console.error("Firebase init failed", e); }
+}
+const SYNC_PIN_KEY = "studyflow-sync-pin";
+const STORAGE_KEY = "studyflow-data-v3";
+
+/* ---------------------------------------------------------
+   DESIGN TOKENS
+--------------------------------------------------------- */
+const INK = "#1E2A45";
+const PAPER = "#FAF9F6";
+const PAPER_DARK = "#14181F";
+const AMBER = "#E8A33D";
+const CAT_COLORS = { School: "#3B82C4", Work: "#7C5CBF", Study: "#3F9142", Sport: "#E4664B", Exam: "#C23B4D", Personal: "#6B7280", Break: "#C9C4B8" };
+const DAY_LABELS = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+const SUBJECT_PALETTE = ["#C2703B", "#3B82C4", "#1D8F7A", "#6B4FA0", "#A6455B", "#3F9142", "#B0793C", "#4A6FA5"];
+const SCHEDULE_HORIZON_DAYS = 120; // ~17 weeks — comfortably covers a term of exam dates
+
+/* ---------------------------------------------------------
+   REAL QCAA UNIT 3 & 4 SUBJECT MATTER — the syllabus's own
+   topic/sub-topic breakdown, used as a non-negotiable
+   coverage checklist per subject. Hours are the syllabus's
+   own notional-time guide, used to size a study block when a
+   sub-topic auto-queues onto the calendar.
+   English (Othello) and Study of Religion Units 3 & 4 are
+   built from the actual syllabus structure too, except
+   English — QCAA doesn't prescribe text-specific content for
+   English, so that one is a starting template built around
+   the session types you described (quotes, practice
+   responses, thematic analysis) — edit freely.
+--------------------------------------------------------- */
+function buildTopics(list, prefix) {
+  return list.map((t, i) => ({ id: prefix + "-t" + i, unit: t.unit, topic: t.topic, subtopic: t.subtopic, hours: t.hours, done: false }));
+}
+const PHYSICS_TOPICS = [
+  // Unit 3, Topic 1: Gravity and motion (22 hours)
+  { unit: "Unit 3", topic: "Projectile motion", subtopic: "Resolve a vector into two perpendicular components", hours: 1 },
+  { unit: "Unit 3", topic: "Projectile motion", subtopic: "Solve vector problems by resolving, combining and recombining components", hours: 2 },
+  { unit: "Unit 3", topic: "Projectile motion", subtopic: "Explain that horizontal and vertical velocity components are independent", hours: 1 },
+  { unit: "Unit 3", topic: "Projectile motion", subtopic: "Solve projectile motion problems in the absence of drag", hours: 2 },
+  { unit: "Unit 3", topic: "Projectile motion", subtopic: "Interpret data on horizontal distance vs launch angle", hours: 1 },
+  { unit: "Unit 3", topic: "Inclined planes and circular motion", subtopic: "Solve weight problems using Fg = mg", hours: 1 },
+  { unit: "Unit 3", topic: "Inclined planes and circular motion", subtopic: "Describe the normal force", hours: 1 },
+  { unit: "Unit 3", topic: "Inclined planes and circular motion", subtopic: "Draw free-body diagrams for objects on an inclined plane", hours: 2 },
+  { unit: "Unit 3", topic: "Inclined planes and circular motion", subtopic: "Determine net force on an inclined plane using vector analysis", hours: 2 },
+  { unit: "Unit 3", topic: "Inclined planes and circular motion", subtopic: "Describe uniform circular motion", hours: 1 },
+  { unit: "Unit 3", topic: "Inclined planes and circular motion", subtopic: "Describe average speed and period for circular motion", hours: 1 },
+  { unit: "Unit 3", topic: "Inclined planes and circular motion", subtopic: "Solve uniform circular motion problems (v = 2πr/T, a_c = v²/r)", hours: 2 },
+  { unit: "Unit 3", topic: "Inclined planes and circular motion", subtopic: "Describe centripetal acceleration and centripetal force", hours: 1 },
+  { unit: "Unit 3", topic: "Inclined planes and circular motion", subtopic: "Solve centripetal force problems (F_c = mv²/r)", hours: 2 },
+  { unit: "Unit 3", topic: "Orbital mechanics", subtopic: "Describe the Law of Universal Gravitation", hours: 1 },
+  { unit: "Unit 3", topic: "Orbital mechanics", subtopic: "Solve gravitational force problems (F = GMm/r²)", hours: 2 },
+  { unit: "Unit 3", topic: "Orbital mechanics", subtopic: "Describe gravitational fields", hours: 1 },
+  { unit: "Unit 3", topic: "Orbital mechanics", subtopic: "Solve gravitational field strength problems (g = GM/r²)", hours: 2 },
+  { unit: "Unit 3", topic: "Orbital mechanics", subtopic: "State the three laws of planetary motion", hours: 1 },
+  { unit: "Unit 3", topic: "Orbital mechanics", subtopic: "Describe how gravitation relates to circular motion (Kepler's third law)", hours: 1 },
+  { unit: "Unit 3", topic: "Orbital mechanics", subtopic: "Solve Kepler's third law problems (T²/r³ relationship)", hours: 2 },
+  // Unit 3, Topic 2: Electromagnetism (23 hours)
+  { unit: "Unit 3", topic: "Electrostatics", subtopic: "Describe Coulomb's Law", hours: 1 },
+  { unit: "Unit 3", topic: "Electrostatics", subtopic: "Solve Coulomb's Law problems (F = kQq/r²)", hours: 2 },
+  { unit: "Unit 3", topic: "Electrostatics", subtopic: "Describe electric fields, field strength and electric potential energy", hours: 1 },
+  { unit: "Unit 3", topic: "Electrostatics", subtopic: "Solve electric field strength problems (E = kq/r²)", hours: 2 },
+  { unit: "Unit 3", topic: "Electrostatics", subtopic: "Solve work-done-in-a-field problems (V = ΔU/q)", hours: 1 },
+  { unit: "Unit 3", topic: "Magnetic fields", subtopic: "Describe magnetic fields", hours: 1 },
+  { unit: "Unit 3", topic: "Magnetic fields", subtopic: "Sketch magnetic field lines for moving charges, currents and magnets", hours: 1 },
+  { unit: "Unit 3", topic: "Magnetic fields", subtopic: "Describe how a moving charge generates a magnetic field", hours: 1 },
+  { unit: "Unit 3", topic: "Magnetic fields", subtopic: "Solve magnetic field strength problems for a wire and a solenoid", hours: 2 },
+  { unit: "Unit 3", topic: "Magnetic fields", subtopic: "Describe the force on current-carrying conductors and moving charges in a field", hours: 1 },
+  { unit: "Unit 3", topic: "Magnetic fields", subtopic: "Solve magnetic force problems (F = BIL sinθ, F = qvB sinθ)", hours: 2 },
+  { unit: "Unit 3", topic: "Magnetic fields", subtopic: "Interpret force-on-a-conductor experimental data", hours: 1 },
+  { unit: "Unit 3", topic: "Magnetic fields", subtopic: "Interpret magnet-strength-vs-distance data", hours: 1 },
+  { unit: "Unit 3", topic: "Electromagnetic induction", subtopic: "Describe magnetic flux, EMF, Faraday's Law and Lenz's Law", hours: 1 },
+  { unit: "Unit 3", topic: "Electromagnetic induction", subtopic: "Solve magnetic flux problems (Φ = BAcosθ)", hours: 2 },
+  { unit: "Unit 3", topic: "Electromagnetic induction", subtopic: "Describe inducing an EMF across a moving conductor", hours: 1 },
+  { unit: "Unit 3", topic: "Electromagnetic induction", subtopic: "Explain Lenz's Law in terms of conservation of energy", hours: 1 },
+  { unit: "Unit 3", topic: "Electromagnetic induction", subtopic: "Explain how transformers work", hours: 1 },
+  { unit: "Unit 3", topic: "Electromagnetic induction", subtopic: "Solve EMF, induction and transformer problems", hours: 2 },
+  { unit: "Unit 3", topic: "Electromagnetic induction", subtopic: "Describe electromagnetic waves", hours: 1 },
+  { unit: "Unit 3", topic: "Electromagnetic induction", subtopic: "Explain the link between oscillating charges and EM waves", hours: 1 },
+  // Unit 4, Topic 1: Special relativity (16 hours)
+  { unit: "Unit 4", topic: "Special relativity", subtopic: "Describe phenomena classical physics can't explain (muons, high-speed particles)", hours: 1 },
+  { unit: "Unit 4", topic: "Special relativity", subtopic: "Describe frame of reference and inertial frame of reference", hours: 1 },
+  { unit: "Unit 4", topic: "Special relativity", subtopic: "State the two postulates of special relativity", hours: 1 },
+  { unit: "Unit 4", topic: "Special relativity", subtopic: "Explain that motion is only measurable relative to an observer", hours: 1 },
+  { unit: "Unit 4", topic: "Special relativity", subtopic: "Explain the concept of simultaneity", hours: 1 },
+  { unit: "Unit 4", topic: "Special relativity", subtopic: "Describe consequences of the constant speed of light (time dilation, length contraction)", hours: 1 },
+  { unit: "Unit 4", topic: "Special relativity", subtopic: "Describe time dilation, length contraction, rest mass and relativistic momentum", hours: 1 },
+  { unit: "Unit 4", topic: "Special relativity", subtopic: "Describe experimental evidence for time dilation and length contraction", hours: 1 },
+  { unit: "Unit 4", topic: "Special relativity", subtopic: "State the mass–energy equivalence relationship", hours: 1 },
+  { unit: "Unit 4", topic: "Special relativity", subtopic: "Solve time dilation, length contraction, relativistic momentum & mass–energy problems", hours: 2 },
+  { unit: "Unit 4", topic: "Special relativity", subtopic: "Explain relativistic momentum increasing as objects approach light speed", hours: 1 },
+  { unit: "Unit 4", topic: "Special relativity", subtopic: "Explain relativity paradoxes (twins, ladder-barn, flashlights on a train)", hours: 1 },
+  // Unit 4, Topic 2: Quantum theory (16 hours)
+  { unit: "Unit 4", topic: "Quantum theory", subtopic: "Explain the double-slit experiment as evidence for the wave model of light", hours: 1 },
+  { unit: "Unit 4", topic: "Quantum theory", subtopic: "Describe light as an electromagnetic wave", hours: 1 },
+  { unit: "Unit 4", topic: "Quantum theory", subtopic: "Explain black-body radiation and its significance", hours: 1 },
+  { unit: "Unit 4", topic: "Quantum theory", subtopic: "Describe the photoelectric effect in terms of the photon", hours: 1 },
+  { unit: "Unit 4", topic: "Quantum theory", subtopic: "Describe threshold frequency and work function", hours: 1 },
+  { unit: "Unit 4", topic: "Quantum theory", subtopic: "Solve black-body radiation & photoelectric effect problems", hours: 2 },
+  { unit: "Unit 4", topic: "Quantum theory", subtopic: "Compare Rutherford's and Bohr's atomic models", hours: 1 },
+  { unit: "Unit 4", topic: "Quantum theory", subtopic: "Explain how Bohr's model explains the hydrogen line spectrum", hours: 1 },
+  { unit: "Unit 4", topic: "Quantum theory", subtopic: "Solve atomic energy level / line spectra problems", hours: 2 },
+  { unit: "Unit 4", topic: "Quantum theory", subtopic: "Describe wave–particle duality evidence", hours: 1 },
+  { unit: "Unit 4", topic: "Quantum theory", subtopic: "Interpret photoelectric effect experimental data", hours: 1 },
+  // Unit 4, Topic 3: The Standard Model (7 hours) + Particle interactions (6 hours)
+  { unit: "Unit 4", topic: "The Standard Model", subtopic: "Describe elementary particles and antiparticles", hours: 1 },
+  { unit: "Unit 4", topic: "The Standard Model", subtopic: "Identify the six types of quarks", hours: 1 },
+  { unit: "Unit 4", topic: "The Standard Model", subtopic: "Describe baryons and mesons", hours: 1 },
+  { unit: "Unit 4", topic: "The Standard Model", subtopic: "Identify the six types of leptons", hours: 1 },
+  { unit: "Unit 4", topic: "The Standard Model", subtopic: "Identify the four gauge bosons", hours: 1 },
+  { unit: "Unit 4", topic: "The Standard Model", subtopic: "Compare the strong, weak and electromagnetic forces via gauge bosons", hours: 1 },
+  { unit: "Unit 4", topic: "The Standard Model", subtopic: "Contrast the fundamental forces experienced by quarks and leptons", hours: 1 },
+  { unit: "Unit 4", topic: "Particle interactions", subtopic: "Describe lepton number and baryon number", hours: 1 },
+  { unit: "Unit 4", topic: "Particle interactions", subtopic: "Solve lepton/baryon number conservation problems", hours: 2 },
+  { unit: "Unit 4", topic: "Particle interactions", subtopic: "Describe electron/electron, electron/positron and neutron decay interactions", hours: 1 },
+  { unit: "Unit 4", topic: "Particle interactions", subtopic: "Describe symmetry in particle interactions (conservation)", hours: 1 },
+];
+const METHODS_TOPICS = [
+  { unit: "Unit 3", topic: "Differentiation of exponential and logarithmic functions", subtopic: "Calculus of exponential functions", hours: 6 },
+  { unit: "Unit 3", topic: "Differentiation of exponential and logarithmic functions", subtopic: "Calculus of logarithmic functions", hours: 8 },
+  { unit: "Unit 3", topic: "Differentiation of trigonometric functions and differentiation rules", subtopic: "Calculus of trigonometric functions", hours: 5 },
+  { unit: "Unit 3", topic: "Differentiation of trigonometric functions and differentiation rules", subtopic: "Differentiation rules (chain, product, quotient)", hours: 5 },
+  { unit: "Unit 3", topic: "Further applications of differentiation", subtopic: "Second derivative, concavity, optimisation", hours: 10 },
+  { unit: "Unit 3", topic: "Introduction to integration", subtopic: "Anti-differentiation", hours: 9 },
+  { unit: "Unit 3", topic: "Discrete random variables", subtopic: "General discrete random variables", hours: 5 },
+  { unit: "Unit 3", topic: "Discrete random variables", subtopic: "Bernoulli distributions", hours: 2 },
+  { unit: "Unit 3", topic: "Discrete random variables", subtopic: "Binomial distributions", hours: 5 },
+  { unit: "Unit 4", topic: "Further integration", subtopic: "Fundamental theorem of calculus, definite integrals", hours: 3 },
+  { unit: "Unit 4", topic: "Further integration", subtopic: "Applications of integration (areas)", hours: 8 },
+  { unit: "Unit 4", topic: "Trigonometry", subtopic: "Sine rule, cosine rule, area of a triangle", hours: 10 },
+  { unit: "Unit 4", topic: "Continuous random variables and the normal distribution", subtopic: "General continuous random variables", hours: 6 },
+  { unit: "Unit 4", topic: "Continuous random variables and the normal distribution", subtopic: "Normal distributions", hours: 6 },
+  { unit: "Unit 4", topic: "Sampling and proportions", subtopic: "Random sampling", hours: 3 },
+  { unit: "Unit 4", topic: "Sampling and proportions", subtopic: "Sample proportions", hours: 8 },
+  { unit: "Unit 4", topic: "Interval estimates for proportions", subtopic: "Confidence intervals for proportions", hours: 11 },
+];
+const SPECIALIST_TOPICS = [
+  { unit: "Unit 3", topic: "Further complex numbers", subtopic: "Complex arithmetic using polar form", hours: 3 },
+  { unit: "Unit 3", topic: "Further complex numbers", subtopic: "Roots of complex numbers", hours: 3 },
+  { unit: "Unit 3", topic: "Further complex numbers", subtopic: "Factorisation of polynomials", hours: 5 },
+  { unit: "Unit 3", topic: "Mathematical induction and trigonometric proofs", subtopic: "Mathematical induction", hours: 8 },
+  { unit: "Unit 3", topic: "Mathematical induction and trigonometric proofs", subtopic: "Trigonometric proofs using De Moivre's theorem", hours: 2 },
+  { unit: "Unit 3", topic: "Vectors in two and three dimensions", subtopic: "Vectors in three dimensions", hours: 3 },
+  { unit: "Unit 3", topic: "Vectors in two and three dimensions", subtopic: "Algebra of vectors in three dimensions", hours: 3 },
+  { unit: "Unit 3", topic: "Vectors in two and three dimensions", subtopic: "Vector and Cartesian equations (lines, planes)", hours: 7 },
+  { unit: "Unit 3", topic: "Vector calculus", subtopic: "Vector calculus (motion in a plane)", hours: 9 },
+  { unit: "Unit 3", topic: "Further matrices", subtopic: "Matrix algebra and systems of equations", hours: 5 },
+  { unit: "Unit 3", topic: "Further matrices", subtopic: "Applications of matrices", hours: 7 },
+  { unit: "Unit 4", topic: "Integration techniques", subtopic: "Integration techniques", hours: 10 },
+  { unit: "Unit 4", topic: "Applications of integral calculus", subtopic: "Applications of integral calculus", hours: 10 },
+  { unit: "Unit 4", topic: "Rates of change and differential equations", subtopic: "Rates of change (related rates)", hours: 3 },
+  { unit: "Unit 4", topic: "Rates of change and differential equations", subtopic: "Differential equations", hours: 8 },
+  { unit: "Unit 4", topic: "Modelling motion", subtopic: "Modelling motion", hours: 11 },
+  { unit: "Unit 4", topic: "Statistical inference", subtopic: "Sample means", hours: 7 },
+  { unit: "Unit 4", topic: "Statistical inference", subtopic: "Confidence intervals for means", hours: 6 },
+];
+const RELIGION_TOPICS = [
+  { unit: "Unit 3", topic: "Social ethics", subtopic: "Religious frameworks and key teachings behind ethical positions", hours: 5 },
+  { unit: "Unit 3", topic: "Social ethics", subtopic: "Analyse religious perspectives on the chosen social-ethical issue", hours: 6 },
+  { unit: "Unit 3", topic: "Social ethics", subtopic: "Evaluate religion's influence on that social-ethical issue", hours: 5 },
+  { unit: "Unit 3", topic: "Personal ethics", subtopic: "How religious traditions inform personal ethics", hours: 5 },
+  { unit: "Unit 3", topic: "Personal ethics", subtopic: "Analyse one religion's response to the chosen personal ethical issue", hours: 6 },
+  { unit: "Unit 3", topic: "Personal ethics", subtopic: "Evaluate religion's influence on that personal ethical decision", hours: 5 },
+  { unit: "Unit 4", topic: "Religion and the nation-state", subtopic: "Types of religion-state relationships", hours: 5 },
+  { unit: "Unit 4", topic: "Religion and the nation-state", subtopic: "Analyse a religion's interaction with the chosen nation-state context", hours: 6 },
+  { unit: "Unit 4", topic: "Religion and the nation-state", subtopic: "Evaluate religion's significance in that relationship", hours: 5 },
+  { unit: "Unit 4", topic: "Human existence and rights", subtopic: "Religious teachings on the nature of humanity and rights", hours: 5 },
+  { unit: "Unit 4", topic: "Human existence and rights", subtopic: "Analyse perspectives on ultimate questions and human rights documents", hours: 6 },
+  { unit: "Unit 4", topic: "Human existence and rights", subtopic: "Evaluate religion's influence on rights and social justice issues", hours: 5 },
+];
+const DIGITAL_TOPICS = [
+  { unit: "Unit 4", topic: "Digital methods for exchanging data", subtopic: "Encryption, authentication and data exchange concepts (symmetric/asymmetric, hashing, APIs)", hours: 9 },
+  { unit: "Unit 4", topic: "Digital methods for exchanging data", subtopic: "Network transmission principles (protocols, packet switching, QoS, security)", hours: 9 },
+  { unit: "Unit 4", topic: "Complex digital data exchange problems and solution requirements", subtopic: "Analysing data exchange problems, risks and success criteria", hours: 9 },
+  { unit: "Unit 4", topic: "Complex digital data exchange problems and solution requirements", subtopic: "Data flow diagrams and algorithm design for data exchange", hours: 9 },
+  { unit: "Unit 4", topic: "Prototype digital data exchanges", subtopic: "Programming constructs, data structures and SQL for prototypes", hours: 9 },
+  { unit: "Unit 4", topic: "Prototype digital data exchanges", subtopic: "Implementing and evaluating cipher algorithms (Caesar, Vigenère, one-time pad)", hours: 10 },
+];
+// Starting template only — QCAA's English syllabus doesn't prescribe a text or
+// its content, so this is built around your own plan (quotes / practice
+// responses / thematic analysis). Edit or add topics freely on the subject page.
+const ENGLISH_OTHELLO_TOPICS = [
+  { unit: "Othello — Acts", topic: "Act 1", subtopic: "Re-read Act 1 & build quote bank", hours: 2 },
+  { unit: "Othello — Acts", topic: "Act 1", subtopic: "Practice analysis: Iago's manipulation begins", hours: 2 },
+  { unit: "Othello — Acts", topic: "Act 2", subtopic: "Re-read Act 2 & build quote bank", hours: 2 },
+  { unit: "Othello — Acts", topic: "Act 2", subtopic: "Practice analysis: appearance vs reality", hours: 2 },
+  { unit: "Othello — Acts", topic: "Act 3", subtopic: "Re-read Act 3 & build quote bank", hours: 2 },
+  { unit: "Othello — Acts", topic: "Act 3", subtopic: "Practice analysis: jealousy takes hold", hours: 3 },
+  { unit: "Othello — Acts", topic: "Act 4", subtopic: "Re-read Act 4 & build quote bank", hours: 2 },
+  { unit: "Othello — Acts", topic: "Act 4", subtopic: "Practice analysis: reputation and gender", hours: 2 },
+  { unit: "Othello — Acts", topic: "Act 5", subtopic: "Re-read Act 5 & build quote bank", hours: 2 },
+  { unit: "Othello — Acts", topic: "Act 5", subtopic: "Practice analysis: tragedy and resolution", hours: 2 },
+  { unit: "Othello — Themes", topic: "Jealousy", subtopic: "Quote drilling + short written response", hours: 2 },
+  { unit: "Othello — Themes", topic: "Manipulation and Iago", subtopic: "Quote drilling + short written response", hours: 2 },
+  { unit: "Othello — Themes", topic: "Race and the outsider", subtopic: "Quote drilling + short written response", hours: 2 },
+  { unit: "Othello — Themes", topic: "Gender and reputation", subtopic: "Quote drilling + short written response", hours: 2 },
+  { unit: "Othello — Themes", topic: "Appearance vs reality", subtopic: "Quote drilling + short written response", hours: 2 },
+  { unit: "Othello — Exam prep", topic: "Essay practice", subtopic: "Full practice essay, timed conditions", hours: 2 },
+  { unit: "Othello — Exam prep", topic: "Essay practice", subtopic: "Redraft a previous essay using feedback", hours: 2 },
+  { unit: "Othello — Exam prep", topic: "Quote recall", subtopic: "Timed quote memorisation drill", hours: 1 },
+];
+
+/* ---------------------------------------------------------
+   SEED DATA
+--------------------------------------------------------- */
+const seedSubjects = [
+  { id: "eng", name: "English", color: "#C2703B", examDate: "2026-10-27", examMarks: 25, topics: buildTopics(ENGLISH_OTHELLO_TOPICS, "eng") },
+  { id: "sor", name: "Study of Religion", color: "#A6455B", examDate: "2026-11-03", examMarks: 25, topics: buildTopics(RELIGION_TOPICS, "sor") },
+  { id: "spec", name: "Specialist Mathematics", color: "#6B4FA0", examDate: "2026-11-05", examMarks: 50, topics: buildTopics(SPECIALIST_TOPICS, "spec") },
+  { id: "phys", name: "Physics", color: "#3F9142", examDate: "2026-11-09", examMarks: 50, topics: buildTopics(PHYSICS_TOPICS, "phys") },
+  { id: "digi", name: "Digital Solutions", color: "#3B82C4", examDate: "2026-11-10", examMarks: 25, topics: buildTopics(DIGITAL_TOPICS, "digi") },
+  { id: "math", name: "Mathematical Methods", color: "#1D8F7A", examDate: "2026-11-13", examMarks: 50, topics: buildTopics(METHODS_TOPICS, "math") },
+];
+const seedSchool = [
+  { id: "s1", day: 0, start: "08:45", end: "15:00" }, { id: "s2", day: 1, start: "08:45", end: "15:00" },
+  { id: "s3", day: 2, start: "08:45", end: "15:00" }, { id: "s4", day: 3, start: "08:45", end: "15:00" },
+  { id: "s5", day: 4, start: "08:45", end: "15:00" },
+];
+const seedWork = [
+  { id: "w1", day: 0, start: "17:00", end: "21:00" }, { id: "w2", day: 2, start: "16:00", end: "20:00" },
+  { id: "w3", day: 4, start: "18:00", end: "22:00" }, { id: "w4", day: 5, start: "10:00", end: "15:00" },
+];
+const seedEvents = [
+  { id: "e1", day: 1, start: "18:00", end: "19:30", title: "Soccer training", type: "Sport" },
+  { id: "e2", day: 6, start: "10:00", end: "11:00", title: "Driving lesson", type: "Personal" },
+];
+const seedTasks = [];
+const seedPracticeTests = [];
+const defaultSettings = {
+  wake: "06:30",
+  bedtime: "22:30",
+  weeklyStudyHours: 14,
+  maxDailyStudyHours: 3,
+  blockLength: 45,
+  breakLength: 10,
+  afterSchoolBufferMin: 60,
+  eventBufferMin: 45,
+  bedtimeBufferMin: 90,
+  preExamBufferDays: 30,
+};
+
+/* ---------------------------------------------------------
+   DATE HELPERS — real calendar dates throughout, not a
+   repeating Mon–Sun template.
+--------------------------------------------------------- */
+function startOfDay(d) { const n = new Date(d); n.setHours(0, 0, 0, 0); return n; }
+function addDaysToDate(d, n) { const r = new Date(d); r.setDate(r.getDate() + n); return r; }
+function toISODate(d) { return startOfDay(d).toISOString().slice(0, 10); }
+function todayDate() { return startOfDay(new Date()); }
+function todayStr() { return toISODate(todayDate()); }
+function daysUntil(dateStr) { return Math.round((startOfDay(dateStr) - todayDate()) / 86400000); }
+function daysBetweenStr(a, b) { return Math.round((startOfDay(b) - startOfDay(a)) / 86400000); }
+function weekdayIdx(d) { return (d.getDay() + 6) % 7; } // Mon=0
+function mondayOf(d) { return addDaysToDate(d, -weekdayIdx(d)); }
+function toMin(hhmm) { const [h, m] = hhmm.split(":").map(Number); return h * 60 + m; }
+function toHHMM(min) { const h = Math.floor(min / 60) % 24, m = min % 60; return `${String(h).padStart(2, "0")}:${String(m).padStart(2, "0")}`; }
+function fmtShort(d) { return d.toLocaleDateString(undefined, { day: "numeric", month: "short" }); }
+
+function computeConfidence(subjectId, practiceTests) {
+  const results = practiceTests.filter((t) => t.subjectId === subjectId);
+  if (!results.length) return null;
+  const avgPct = results.reduce((sum, t) => sum + (t.score / t.maxScore) * 100, 0) / results.length;
+  return Math.round((avgPct / 10) * 10) / 10;
+}
+function taskRemaining(task, completedMinutesByTask) { return Math.max(0, task.duration - (completedMinutesByTask[task.id] || 0)); }
+
+/* ---------------------------------------------------------
+   SCHEDULING ENGINE — real dates from today out to a
+   multi-week horizon.
+   - never before school ends (+buffer), never inside the
+     bedtime buffer, never before "right now" today
+   - non-negotiable: every un-checked syllabus topic auto-
+     queues itself with a due date of (exam date − buffer
+     days) and always wins priority over optional tasks
+   - load-balances chunks across whichever eligible day has
+     had the least study placed on it so far, so work spreads
+     out instead of clustering at the start of the week
+   - a weekly-hours target caps each Mon–Sun bucket
+--------------------------------------------------------- */
+function buildFreeSlotsForDate(date, school, work, events, settings, isToday) {
+  const dayIdx = weekdayIdx(date);
+  const buffer = settings.eventBufferMin ?? 45;
+  const raw = [
+    ...school.filter((b) => b.day === dayIdx).map((b) => [toMin(b.start), toMin(b.end)]),
+    ...work.filter((b) => b.day === dayIdx).map((b) => [toMin(b.start), toMin(b.end)]),
+    ...events.filter((b) => b.day === dayIdx).map((b) => [toMin(b.start), toMin(b.end)]),
+  ].sort((a, b) => a[0] - b[0]);
+  // pad every commitment with the event buffer on both sides — this is what keeps
+  // study from butting straight up against school/work/events. It's independent of
+  // breakLength, which only spaces out consecutive auto-generated study blocks.
+  const busy = raw.map(([s, e]) => [Math.max(0, s - buffer), Math.min(1440, e + buffer)]);
+
+  // Wake time floor: never earlier than 5am regardless of what's stored in settings —
+  // guards against a bad/old saved value ever producing an unrealistic start time.
+  let wake = Math.max(toMin(settings.wake), 300);
+  const bed = Math.max(wake, toMin(settings.bedtime) - (settings.bedtimeBufferMin ?? 90));
+
+  if (isToday) {
+    const now = new Date();
+    wake = Math.max(wake, now.getHours() * 60 + now.getMinutes() + 5);
+  }
+
+  let free = [[wake, bed]];
+  for (const [bs, be] of busy) {
+    const next = [];
+    for (const [fs, fe] of free) {
+      if (be <= fs || bs >= fe) { next.push([fs, fe]); continue; }
+      if (bs > fs) next.push([fs, bs]);
+      if (be < fe) next.push([be, fe]);
+    }
+    free = next;
+  }
+  return free.filter(([s, e]) => e - s >= 20);
+}
+
+function scoreTask(task, subject, dueInDays) {
+  const urgency = Math.max(0, 14 - dueInDays) * 3;
+  const examProximity = subject ? Math.max(0, 90 - daysUntil(subject.examDate)) / 3 : 0;
+  const priorityWeight = { High: 30, Medium: 15, Low: 5 }[task.priority] || 10;
+  const confidenceGap = subject ? (10 - subject.confidence) * 4 : 0;
+  const difficultyWeight = { Hard: 10, Medium: 5, Easy: 0 }[task.difficulty] || 0;
+  const examWeight = subject ? (subject.examMarks || 20) * 0.6 : 0;
+  const mandatoryBonus = task.mandatory ? 1000 : 0;
+  return urgency + examProximity + priorityWeight + confidenceGap + difficultyWeight + examWeight + mandatoryBonus;
+}
+
+// allTasks: mandatory (auto syllabus) + manual tasks, each with dueInDays relative to today.
+// Placement is round-robin across tasks (one chunk per task per pass) rather than
+// finishing one task's entire queue before touching the next — otherwise a single
+// heavily-weighted subject can swallow the whole horizon before other subjects ever
+// get a slot, which is exactly what was happening.
+function generateSchedule(allTasks, subjects, school, work, events, settings, completedMinutesByTask) {
+  const subjectMap = Object.fromEntries(subjects.map((s) => [s.id, s]));
+  const today = todayDate();
+
+  const ranked = allTasks
+    .map((t) => ({ ...t, remaining: taskRemaining(t, completedMinutesByTask), score: scoreTask(t, subjectMap[t.subjectId], t.dueInDays) }))
+    .filter((t) => t.remaining > 0)
+    .sort((a, b) => b.score - a.score);
+
+  const dayFree = {}, dailyUsed = {}, weeklyUsed = {};
+  const dateList = [];
+  for (let d = 0; d < SCHEDULE_HORIZON_DAYS; d++) {
+    const date = addDaysToDate(today, d);
+    const iso = toISODate(date);
+    dateList.push(iso);
+    dayFree[iso] = buildFreeSlotsForDate(date, school, work, events, settings, d === 0).map(([s, e]) => ({ start: s, end: e }));
+    dailyUsed[iso] = 0;
+    const wk = toISODate(mondayOf(date));
+    if (!(wk in weeklyUsed)) weeklyUsed[wk] = 0;
+  }
+  function weekKeyFor(iso) { return toISODate(mondayOf(new Date(iso))); }
+
+  const dailyBudget = settings.maxDailyStudyHours * 60;
+  const weeklyBudget = (settings.weeklyStudyHours || 14) * 60;
+  const sessionsByDate = {};
+  dateList.forEach((iso) => (sessionsByDate[iso] = []));
+
+  function findBestDate(task) {
+    const dueIso = toISODate(addDaysToDate(today, Math.max(0, task.dueInDays)));
+    let best = null, bestRatio = Infinity;
+    for (const iso of dateList) {
+      if (iso > dueIso) break;
+      const wk = weekKeyFor(iso);
+      if (dailyUsed[iso] >= dailyBudget || weeklyUsed[wk] >= weeklyBudget) continue;
+      if (!dayFree[iso].some((slot) => slot.end - slot.start >= 20)) continue;
+      const ratio = dailyUsed[iso] / dailyBudget;
+      if (ratio < bestRatio) { bestRatio = ratio; best = iso; }
+    }
+    if (!best) {
+      // overflow past the due date if nothing fit — better late than never for non-negotiable work
+      for (const iso of dateList) {
+        const wk = weekKeyFor(iso);
+        if (dailyUsed[iso] >= dailyBudget || weeklyUsed[wk] >= weeklyBudget) continue;
+        if (!dayFree[iso].some((slot) => slot.end - slot.start >= 20)) continue;
+        const ratio = dailyUsed[iso] / dailyBudget;
+        if (ratio < bestRatio) { bestRatio = ratio; best = iso; }
+      }
+    }
+    return best;
+  }
+
+  let progress = true, rounds = 0;
+  const maxRounds = ranked.length * 60 + 200;
+  while (progress && rounds < maxRounds) {
+    progress = false;
+    rounds++;
+    for (const task of ranked) {
+      if (task.remaining <= 0) continue;
+      const best = findBestDate(task);
+      if (!best) continue;
+      const slot = dayFree[best].find((s) => s.end - s.start >= 20);
+      const wk = weekKeyFor(best);
+      const chunk = Math.min(task.remaining, settings.blockLength, slot.end - slot.start, dailyBudget - dailyUsed[best], weeklyBudget - weeklyUsed[wk]);
+      if (chunk < 20) { slot.start = slot.end; continue; }
+      sessionsByDate[best].push({ id: `${task.id}-${best}-${slot.start}`, taskId: task.id, subjectId: task.subjectId, title: task.title, start: slot.start, end: slot.start + chunk, type: "Study", mandatory: !!task.mandatory });
+      slot.start += chunk + settings.breakLength;
+      dailyUsed[best] += chunk; weeklyUsed[wk] += chunk; task.remaining -= chunk;
+      progress = true;
+    }
+  }
+  dateList.forEach((iso) => sessionsByDate[iso].sort((a, b) => a.start - b.start));
+  return sessionsByDate;
+}
+
+/* ---------------------------------------------------------
+   ICONS & MINI CHARTS
+--------------------------------------------------------- */
+function Icon({ name, size = 16 }) {
+  const s = { width: size, height: size, display: "inline-block", verticalAlign: "middle" };
+  const c = { fill: "none", stroke: "currentColor", strokeWidth: 1.8, strokeLinecap: "round", strokeLinejoin: "round" };
+  switch (name) {
+    case "home": return <svg viewBox="0 0 24 24" style={s} {...c}><path d="M3 11l9-7 9 7"/><path d="M5 10v9h14v-9"/></svg>;
+    case "calendar": return <svg viewBox="0 0 24 24" style={s} {...c}><rect x="3" y="5" width="18" height="15" rx="2"/><path d="M3 10h18"/><path d="M8 3v4"/><path d="M16 3v4"/></svg>;
+    case "setup": return <svg viewBox="0 0 24 24" style={s} {...c}><circle cx="12" cy="12" r="8"/><path d="M12 3v3"/><path d="M12 18v3"/><path d="M3 12h3"/><path d="M18 12h3"/></svg>;
+    case "chart": return <svg viewBox="0 0 24 24" style={s} {...c}><path d="M4 20V10"/><path d="M12 20V4"/><path d="M20 20v-7"/></svg>;
+    case "sparkles": return <svg viewBox="0 0 24 24" style={s} {...c}><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8L12 3z"/></svg>;
+    case "gear": return <svg viewBox="0 0 24 24" style={s} {...c}><circle cx="12" cy="12" r="3"/><path d="M19 12a7 7 0 0 0-.2-1.6l2-1.5-2-3.4-2.3.9a7 7 0 0 0-2.8-1.6L13.3 2h-2.6l-.4 2.8a7 7 0 0 0-2.8 1.6l-2.3-.9-2 3.4 2 1.5A7 7 0 0 0 5 12c0 .5.1 1.1.2 1.6l-2 1.5 2 3.4 2.3-.9a7 7 0 0 0 2.8 1.6l.4 2.8h2.6l.4-2.8a7 7 0 0 0 2.8-1.6l2.3.9 2-3.4-2-1.5c.1-.5.2-1.1.2-1.6z"/></svg>;
+    case "briefcase": return <svg viewBox="0 0 24 24" style={s} {...c}><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>;
+    case "grad": return <svg viewBox="0 0 24 24" style={s} {...c}><path d="M2 9l10-5 10 5-10 5-10-5z"/><path d="M6 11.5V17c0 1 3 2.5 6 2.5s6-1.5 6-2.5v-5.5"/></svg>;
+    case "dumbbell": return <svg viewBox="0 0 24 24" style={s} {...c}><path d="M4 9v6"/><path d="M2 10v4"/><path d="M8 7v10"/><path d="M16 7v10"/><path d="M8 12h8"/><path d="M20 10v4"/><path d="M22 9v6"/></svg>;
+    case "check": return <svg viewBox="0 0 24 24" style={s} {...c}><path d="M20 6L9 17l-5-5"/></svg>;
+    case "x": return <svg viewBox="0 0 24 24" style={s} {...c}><path d="M18 6L6 18"/><path d="M6 6l12 12"/></svg>;
+    case "trash": return <svg viewBox="0 0 24 24" style={s} {...c}><path d="M4 7h16"/><path d="M9 7V4h6v3"/><path d="M6 7l1 13h10l1-13"/></svg>;
+    case "plus": return <svg viewBox="0 0 24 24" style={s} {...c}><path d="M12 5v14"/><path d="M5 12h14"/></svg>;
+    case "chevron": return <svg viewBox="0 0 24 24" style={s} {...c}><path d="M9 6l6 6-6 6"/></svg>;
+    case "back": return <svg viewBox="0 0 24 24" style={s} {...c}><path d="M15 6l-6 6 6 6"/></svg>;
+    case "left": return <svg viewBox="0 0 24 24" style={s} {...c}><path d="M15 6l-6 6 6 6"/></svg>;
+    case "right": return <svg viewBox="0 0 24 24" style={s} {...c}><path d="M9 6l6 6-6 6"/></svg>;
+    case "clock": return <svg viewBox="0 0 24 24" style={s} {...c}><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>;
+    case "lock": return <svg viewBox="0 0 24 24" style={s} {...c}><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>;
+    default: return null;
+  }
+}
+function MiniBarChart({ data }) {
+  const max = Math.max(1, ...data.map((d) => d.value));
+  return (
+    <div style={{ display: "flex", alignItems: "flex-end", gap: 14, height: 160, padding: "0 4px" }}>
+      {data.map((d) => (
+        <div key={d.label} style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", gap: 6 }}>
+          <div style={{ fontSize: 11, fontWeight: 600 }}>{d.value}h</div>
+          <div style={{ width: "70%", height: Math.max(4, (d.value / max) * 120), background: d.color, borderRadius: "5px 5px 2px 2px" }} />
+          <div style={{ fontSize: 10.5, color: "var(--text-secondary)" }}>{d.label}</div>
+        </div>
+      ))}
+    </div>
+  );
+}
+function MiniRadar({ data }) {
+  const size = 220, cx = size / 2, cy = size / 2, r = 78, n = data.length;
+  const pts = data.map((d, i) => { const a = (Math.PI * 2 * i) / n - Math.PI / 2, val = (d.value / 10) * r; return [cx + val * Math.cos(a), cy + val * Math.sin(a)]; });
+  const ringPts = (f) => data.map((_, i) => { const a = (Math.PI * 2 * i) / n - Math.PI / 2; return [cx + r * f * Math.cos(a), cy + r * f * Math.sin(a)]; }).map((p) => p.join(",")).join(" ");
+  return (
+    <svg viewBox={`0 0 ${size} ${size}`} width="100%" height="220">
+      {[0.33, 0.66, 1].map((f) => <polygon key={f} points={ringPts(f)} fill="none" stroke="var(--border)" strokeWidth="1" />)}
+      <polygon points={pts.map((p) => p.join(",")).join(" ")} fill={AMBER + "55"} stroke={AMBER} strokeWidth="2" />
+      {data.map((d, i) => { const a = (Math.PI * 2 * i) / n - Math.PI / 2, lx = cx + (r + 18) * Math.cos(a), ly = cy + (r + 18) * Math.sin(a); return <text key={d.label} x={lx} y={ly} fontSize="10.5" textAnchor="middle" fill="var(--text-secondary)">{d.label}</text>; })}
+    </svg>
+  );
+}
+
+/* ---------------------------------------------------------
+   SMALL UI PRIMITIVES
+--------------------------------------------------------- */
+function Card({ children, style, onClick }) { return <div onClick={onClick} style={{ background: "var(--card)", border: "1px solid var(--border)", borderRadius: 16, padding: "1.1rem 1.25rem", ...style }}>{children}</div>; }
+function Pill({ label, color }) { return <span style={{ fontSize: 11, fontWeight: 600, padding: "3px 9px", borderRadius: 999, background: color + "22", color: color }}>{label}</span>; }
+function IconBtn({ icon, active, onClick, label }) {
+  return (
+    <button onClick={onClick} style={{ display: "flex", alignItems: "center", gap: 10, width: "100%", padding: "9px 12px", borderRadius: 10, border: "none", background: active ? "var(--nav-active)" : "transparent", color: active ? INK : "var(--text-secondary)", fontWeight: active ? 600 : 500, fontSize: 13.5, cursor: "pointer", textAlign: "left" }}>
+      <Icon name={icon} size={16} /> {label}
+    </button>
+  );
+}
+function Field({ label, children }) { return <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}><span style={{ fontSize: 12.5, color: "var(--text-secondary)" }}>{label}</span>{children}</div>; }
+
+/* ---------------------------------------------------------
+   MAIN APP
+--------------------------------------------------------- */
+function StudyFlow() {
+  const [dark, setDark] = useState(false);
+  const [tab, setTab] = useState("dashboard");
+  const [selectedSubjectId, setSelectedSubjectId] = useState(null);
+  const [weekOffset, setWeekOffset] = useState(0);
+  const [subjectsBase, setSubjectsBase] = useState(seedSubjects);
+  const [school, setSchool] = useState(seedSchool);
+  const [work, setWork] = useState(seedWork);
+  const [events, setEvents] = useState(seedEvents);
+  const [tasks, setTasks] = useState(seedTasks);
+  const [practiceTests, setPracticeTests] = useState(seedPracticeTests);
+  const [settings, setSettings] = useState(defaultSettings);
+  const [completedMinutesByTask, setCompletedMinutesByTask] = useState({});
+  const [streak, setStreak] = useState({ current: 0, lastActiveDate: null });
+  const [assistantAnswer, setAssistantAnswer] = useState(null);
+  const [saveState, setSaveState] = useState("saved");
+  const [syncPin, setSyncPin] = useState(() => { try { return localStorage.getItem(SYNC_PIN_KEY) || ""; } catch (e) { return ""; } });
+  const [syncStatus, setSyncStatus] = useState("local");
+  const loadedOnce = useRef(false);
+  const applyingRemote = useRef(false);
+
+  function openSubject(id) { setSelectedSubjectId(id); setTab("subject"); }
+
+  useEffect(() => {
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if (raw) {
+        const data = JSON.parse(raw);
+        if (data.subjectsBase) setSubjectsBase(data.subjectsBase);
+        if (data.school) setSchool(data.school);
+        if (data.work) setWork(data.work);
+        if (data.events) setEvents(data.events);
+        if (data.tasks) setTasks(data.tasks);
+        if (data.practiceTests) setPracticeTests(data.practiceTests);
+        if (data.settings) setSettings({ ...defaultSettings, ...data.settings });
+        if (data.completedMinutesByTask) setCompletedMinutesByTask(data.completedMinutesByTask);
+        if (data.streak) setStreak(data.streak);
+      }
+    } catch (e) {}
+    loadedOnce.current = true;
+  }, []);
+
+  useEffect(() => {
+    if (!syncPin || !firebaseReady || !db) { setSyncStatus(syncPin && !firebaseReady ? "error" : "local"); return; }
+    setSyncStatus("connecting");
+    const ref = db.collection("studyflow-sync").doc(syncPin);
+    const unsub = ref.onSnapshot((snap) => {
+      if (snap.exists) {
+        const data = snap.data() || {};
+        applyingRemote.current = true;
+        if (data.subjectsBase) setSubjectsBase(data.subjectsBase);
+        if (data.school) setSchool(data.school);
+        if (data.work) setWork(data.work);
+        if (data.events) setEvents(data.events);
+        if (data.tasks) setTasks(data.tasks);
+        if (data.practiceTests) setPracticeTests(data.practiceTests);
+        if (data.settings) setSettings({ ...defaultSettings, ...data.settings });
+        if (data.completedMinutesByTask) setCompletedMinutesByTask(data.completedMinutesByTask);
+        if (data.streak) setStreak(data.streak);
+      } else {
+        ref.set({ subjectsBase, school, work, events, tasks, practiceTests, settings, completedMinutesByTask, streak, updatedAt: Date.now() }).catch(() => setSyncStatus("error"));
+      }
+      setSyncStatus("synced");
+    }, () => setSyncStatus("error"));
+    return () => unsub();
+  }, [syncPin]);
+
+  useEffect(() => {
+    if (!loadedOnce.current) return;
+    if (applyingRemote.current) { applyingRemote.current = false; return; }
+    setSaveState("saving");
+    const t = setTimeout(() => {
+      try {
+        const payload = { subjectsBase, school, work, events, tasks, practiceTests, settings, completedMinutesByTask, streak };
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(payload));
+        if (syncPin && firebaseReady && db) {
+          db.collection("studyflow-sync").doc(syncPin).set({ ...payload, updatedAt: Date.now() }, { merge: true }).catch(() => setSyncStatus("error"));
+        }
+        setSaveState("saved");
+      } catch (e) { setSaveState("error"); }
+    }, 300);
+    return () => clearTimeout(t);
+  }, [subjectsBase, school, work, events, tasks, practiceTests, settings, completedMinutesByTask, streak]);
+
+  function connectSync(pin) { const clean = pin.trim(); if (!clean) return; try { localStorage.setItem(SYNC_PIN_KEY, clean); } catch (e) {} setSyncPin(clean); }
+  function disconnectSync() { try { localStorage.removeItem(SYNC_PIN_KEY); } catch (e) {} setSyncPin(""); setSyncStatus("local"); }
+  function generateSyncCode() { const code = Math.random().toString(36).slice(2, 8).toUpperCase(); connectSync(code); return code; }
+
+  const subjects = useMemo(() => subjectsBase.map((s) => {
+    const conf = computeConfidence(s.id, practiceTests);
+    return { ...s, confidence: conf ?? 5, avgScore: conf, testCount: practiceTests.filter((t) => t.subjectId === s.id).length };
+  }), [subjectsBase, practiceTests]);
+  const subjectMap = useMemo(() => Object.fromEntries(subjects.map((s) => [s.id, s])), [subjects]);
+
+  // Non-negotiable auto-generated tasks — every un-checked syllabus topic,
+  // due (exam date − buffer) days out, always scheduled ahead of optional work.
+  const mandatoryTasks = useMemo(() => {
+    const list = [];
+    for (const s of subjectsBase) {
+      for (const t of s.topics) {
+        if (t.done) continue;
+        const dueInDays = Math.max(1, daysUntil(s.examDate) - (settings.preExamBufferDays ?? 30));
+        list.push({ id: t.id, subjectId: s.id, title: `${t.topic} — ${t.subtopic}`, duration: Math.min(t.hours * 60, 360), priority: "High", dueInDays, difficulty: "Medium", type: "Syllabus", mandatory: true });
+      }
+    }
+    return list;
+  }, [subjectsBase, settings.preExamBufferDays]);
+
+  const tasksWithDue = useMemo(() => tasks.map((t) => ({ ...t })), [tasks]);
+  const allTasks = useMemo(() => [...mandatoryTasks, ...tasksWithDue], [mandatoryTasks, tasksWithDue]);
+
+  const schedule = useMemo(() => generateSchedule(allTasks, subjects, school, work, events, settings, completedMinutesByTask), [allTasks, subjects, school, work, events, settings, completedMinutesByTask]);
+
+  const today = todayStr();
+  const todaySessions = schedule[today] || [];
+  const displayMonday = mondayOf(addDaysToDate(todayDate(), weekOffset * 7));
+  const weekDates = Array.from({ length: 7 }, (_, i) => toISODate(addDaysToDate(displayMonday, i)));
+  const weekMinutes = weekDates.reduce((sum, iso) => sum + (schedule[iso] || []).reduce((a, s) => a + (s.end - s.start), 0), 0);
+  const weekHours = Math.round((weekMinutes / 60) * 10) / 10;
+  const targetHours = settings.weeklyStudyHours;
+  const totalSessionsThisWeek = weekDates.reduce((sum, iso) => sum + (schedule[iso] || []).length, 0);
+  const loggedTaskCount = Object.values(completedMinutesByTask).filter((m) => m > 0).length;
+
+  function addTask(t) { setTasks((prev) => [...prev, { ...t, id: "t" + Date.now() + Math.random().toString(36).slice(2, 5), dueInDays: Math.max(0, t.dueInDays) }]); }
+  function removeTask(id) { setTasks((prev) => prev.filter((t) => t.id !== id)); setCompletedMinutesByTask((prev) => { const n = { ...prev }; delete n[id]; return n; }); }
+  function adjustTaskDuration(id, delta) { setTasks((prev) => prev.map((t) => (t.id === id ? { ...t, duration: Math.max(15, t.duration + delta) } : t))); }
+  function markTaskDone(id) {
+    const t = tasks.find((x) => x.id === id) || mandatoryTasks.find((x) => x.id === id);
+    if (!t) return;
+    setCompletedMinutesByTask((prev) => ({ ...prev, [id]: t.duration }));
+    bumpStreak();
+  }
+  function markSessionDone(session) { setCompletedMinutesByTask((prev) => ({ ...prev, [session.taskId]: (prev[session.taskId] || 0) + (session.end - session.start) })); bumpStreak(); }
+
+  function bumpStreak() {
+    setStreak((prev) => {
+      const t = todayStr();
+      if (prev.lastActiveDate === t) return prev;
+      const gap = prev.lastActiveDate ? daysBetweenStr(prev.lastActiveDate, t) : null;
+      return { current: gap === 1 ? prev.current + 1 : 1, lastActiveDate: t };
+    });
+  }
+  const streakDisplay = useMemo(() => (!streak.lastActiveDate ? 0 : daysBetweenStr(streak.lastActiveDate, todayStr()) <= 1 ? streak.current : 0), [streak]);
+
+  function addPracticeTest(t) { setPracticeTests((prev) => [...prev, { ...t, id: "pt" + Date.now() }]); }
+  function removePracticeTest(id) { setPracticeTests((prev) => prev.filter((t) => t.id !== id)); }
+
+  function addSubject(s) { setSubjectsBase((prev) => [...prev, { id: "sub" + Date.now(), name: s.name, color: SUBJECT_PALETTE[prev.length % SUBJECT_PALETTE.length], examDate: s.examDate, examMarks: s.examMarks, topics: [] }]); }
+  function removeSubject(id) {
+    setSubjectsBase((prev) => prev.filter((s) => s.id !== id));
+    setTasks((prev) => prev.filter((t) => t.subjectId !== id));
+    setPracticeTests((prev) => prev.filter((t) => t.subjectId !== id));
+  }
+  function toggleTopicDone(subjectId, topicId) {
+    setSubjectsBase((prev) => prev.map((s) => (s.id === subjectId ? { ...s, topics: s.topics.map((t) => (t.id === topicId ? { ...t, done: !t.done } : t)) } : s)));
+  }
+  function addTopic(subjectId, topic) {
+    setSubjectsBase((prev) => prev.map((s) => (s.id === subjectId ? { ...s, topics: [...s.topics, { id: subjectId + "-custom" + Date.now(), unit: topic.unit || "Custom", topic: topic.topic, subtopic: topic.subtopic, hours: topic.hours || 2, done: false }] } : s)));
+  }
+  function removeTopic(subjectId, topicId) {
+    setSubjectsBase((prev) => prev.map((s) => (s.id === subjectId ? { ...s, topics: s.topics.filter((t) => t.id !== topicId) } : s)));
+  }
+
+  function askAssistant(question) {
+    let answer = "";
+    if (question === "tonight") {
+      answer = todaySessions.length === 0 ? "Nothing's scheduled for the rest of today — free time if you want to get ahead."
+        : "Here's tonight's plan:\n" + todaySessions.map((s) => `${toHHMM(s.start)} – ${subjectMap[s.subjectId]?.name}: ${s.title} (${s.end - s.start} min)`).join("\n");
+    } else if (question === "prioritise") {
+      const worst = [...subjects].sort((a, b) => a.confidence - b.confidence)[0];
+      const soonest = [...subjects].sort((a, b) => daysUntil(a.examDate) - daysUntil(b.examDate))[0];
+      answer = worst ? `Focus on ${worst.name} first — it's your lowest confidence subject (${worst.confidence}/10). ${soonest.name} has the nearest exam, in ${daysUntil(soonest.examDate)} days, so keep chipping away at it too.` : "Add a subject first and I can help you prioritise.";
+    } else if (question === "90min") {
+      const pick = [...allTasks].filter((t) => taskRemaining(t, completedMinutesByTask) > 0).sort((a, b) => scoreTask(b, subjectMap[b.subjectId], b.dueInDays) - scoreTask(a, subjectMap[a.subjectId], a.dueInDays))[0];
+      answer = pick ? `With 90 minutes, put it into "${pick.title}" for ${subjectMap[pick.subjectId]?.name} — it's your highest-priority open item right now. Do 2 x 40 min blocks with a short break between.` : "Nothing queued right now — add a task or a subject.";
+    } else if (question === "reschedule") {
+      answer = "Schedule rebuilt around your current shifts, due dates and exam weightings — check the Calendar tab.";
+    }
+    setAssistantAnswer(answer);
+  }
+
+  const vars = dark
+    ? { "--bg": PAPER_DARK, "--card": "#1C212B", "--border": "#2A2F3A", "--text-primary": "#F3F1EA", "--text-secondary": "#9A9A93", "--nav-active": "#262B36" }
+    : { "--bg": PAPER, "--card": "#FFFFFF", "--border": "#E7E4DB", "--text-primary": INK, "--text-secondary": "#6B6F7B", "--nav-active": "#F1ECDD" };
+
+  const selectedSubject = subjects.find((s) => s.id === selectedSubjectId);
+
+  return (
+    <div style={{ ...vars, background: "var(--bg)", color: "var(--text-primary)", minHeight: "100vh", display: "flex" }}>
+      <style>{`
+        .sf-title { font-family: 'Space Grotesk', sans-serif; }
+        .sf-input, .sf-select { font-family: 'Inter', sans-serif; font-size: 13px; padding: 7px 10px; border-radius: 8px; border: 1px solid var(--border); background: var(--card); color: var(--text-primary); }
+        .sf-btn { font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 600; padding: 7px 14px; border-radius: 8px; border: none; background: ${INK}; color: white; cursor: pointer; }
+        .sf-btn-ghost { font-family: 'Inter', sans-serif; font-size: 12.5px; font-weight: 600; padding: 6px 10px; border-radius: 8px; border: 1px solid var(--border); background: transparent; color: var(--text-primary); cursor: pointer; }
+        .sf-btn-tiny { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 700; padding: 3px 7px; border-radius: 6px; border: 1px solid var(--border); background: transparent; color: var(--text-primary); cursor: pointer; }
+        @media (max-width: 760px) {
+          .sf-sidebar { position: fixed; bottom: 0; left: 0; right: 0; width: 100% !important; height: 60px; flex-direction: row !important; border-right: none !important; border-top: 1px solid var(--border); padding: 6px 8px !important; overflow-x: auto; z-index: 10; }
+          .sf-sidebar .sf-logo, .sf-sidebar .sf-status, .sf-sidebar .sf-darkbtn { display: none !important; }
+          .sf-sidebar button { flex-direction: column; gap: 2px !important; font-size: 10px !important; padding: 6px 4px !important; white-space: nowrap; }
+          .sf-main { padding-bottom: 76px !important; }
+          .sf-grid-4 { grid-template-columns: repeat(2, 1fr) !important; }
+          .sf-grid-7 { grid-template-columns: repeat(7, minmax(70px,1fr)) !important; overflow-x: auto; }
+        }
+      `}</style>
+
+      <div className="sf-sidebar" style={{ width: 200, borderRight: "1px solid var(--border)", padding: "1.1rem 0.85rem", display: "flex", flexDirection: "column", gap: 4 }}>
+        <div className="sf-logo sf-title" style={{ fontSize: 18, fontWeight: 700, padding: "0 8px 18px", display: "flex", alignItems: "center", gap: 7 }}>
+          <span style={{ width: 9, height: 9, borderRadius: 3, background: AMBER, display: "inline-block" }} /> StudyFlow
+        </div>
+        <IconBtn icon="home" label="Dashboard" active={tab === "dashboard"} onClick={() => setTab("dashboard")} />
+        <IconBtn icon="calendar" label="Calendar" active={tab === "calendar"} onClick={() => setTab("calendar")} />
+        <IconBtn icon="grad" label="Subjects" active={tab === "subjects" || tab === "subject"} onClick={() => setTab("subjects")} />
+        <IconBtn icon="setup" label="Setup" active={tab === "setup"} onClick={() => setTab("setup")} />
+        <IconBtn icon="chart" label="Analytics" active={tab === "analytics"} onClick={() => setTab("analytics")} />
+        <IconBtn icon="sparkles" label="AI assistant" active={tab === "assistant"} onClick={() => setTab("assistant")} />
+        <IconBtn icon="gear" label="Settings" active={tab === "settings"} onClick={() => setTab("settings")} />
+        <div style={{ flex: 1 }} />
+        <div className="sf-status" style={{ fontSize: 10.5, color: "var(--text-secondary)", padding: "0 8px 6px" }}>
+          {syncPin ? (syncStatus === "synced" ? "Synced" : syncStatus === "connecting" ? "Connecting…" : "Sync error") : (saveState === "saving" ? "Saving…" : saveState === "error" ? "Save failed" : "Saved on this device")}
+        </div>
+        <button className="sf-darkbtn sf-btn-ghost" onClick={() => setDark((d) => !d)}>{dark ? "Light mode" : "Dark mode"}</button>
+      </div>
+
+      <div className="sf-main" style={{ flex: 1, padding: "1.4rem 1.6rem", overflowY: "auto" }}>
+        {tab === "dashboard" && <Dashboard subjects={subjects} todaySessions={todaySessions} weekHours={weekHours} targetHours={targetHours} totalSessions={totalSessionsThisWeek} loggedTaskCount={loggedTaskCount} onMarkSessionDone={markSessionDone} onOpenSubject={openSubject} />}
+        {tab === "calendar" && <CalendarView schedule={schedule} school={school} work={work} events={events} subjects={subjects} weekOffset={weekOffset} setWeekOffset={setWeekOffset} weekDates={weekDates} />}
+        {tab === "subjects" && <SubjectsView subjects={subjects} addSubject={addSubject} onOpen={openSubject} />}
+        {tab === "subject" && (selectedSubject
+          ? <SubjectDetailView subject={selectedSubject} tasks={tasks.filter((t) => t.subjectId === selectedSubject.id)} mandatoryTasks={mandatoryTasks.filter((t) => t.subjectId === selectedSubject.id)} completedMinutesByTask={completedMinutesByTask}
+              addTask={(f) => addTask({ ...f, subjectId: selectedSubject.id })} removeTask={removeTask} adjustTaskDuration={adjustTaskDuration} markTaskDone={markTaskDone}
+              toggleTopicDone={(topicId) => toggleTopicDone(selectedSubject.id, topicId)} addTopic={(topic) => addTopic(selectedSubject.id, topic)} removeTopic={(topicId) => removeTopic(selectedSubject.id, topicId)}
+              practiceTests={practiceTests.filter((t) => t.subjectId === selectedSubject.id)} addPracticeTest={(t) => addPracticeTest({ ...t, subjectId: selectedSubject.id })} removePracticeTest={removePracticeTest}
+              preExamBufferDays={settings.preExamBufferDays} onBack={() => setTab("subjects")} onDelete={() => { removeSubject(selectedSubject.id); setTab("subjects"); }} />
+          : <div><p style={{ fontSize: 13, color: "var(--text-secondary)" }}>Subject not found.</p><button className="sf-btn-ghost" onClick={() => setTab("subjects")}>Back to subjects</button></div>)}
+        {tab === "setup" && <SetupView school={school} setSchool={setSchool} work={work} setWork={setWork} events={events} setEvents={setEvents} />}
+        {tab === "analytics" && <AnalyticsView subjects={subjects} schedule={schedule} weekDates={weekDates} allTasks={allTasks} completedMinutesByTask={completedMinutesByTask} totalSessions={totalSessionsThisWeek} streakDisplay={streakDisplay} />}
+        {tab === "assistant" && <AssistantView askAssistant={askAssistant} answer={assistantAnswer} />}
+        {tab === "settings" && <SettingsView settings={settings} setSettings={setSettings} syncPin={syncPin} syncStatus={syncStatus} connectSync={connectSync} disconnectSync={disconnectSync} generateSyncCode={generateSyncCode} />}
+      </div>
+    </div>
+  );
+}
+
+/* ---------------------------------------------------------
+   DASHBOARD
+--------------------------------------------------------- */
+function Dashboard({ subjects, todaySessions, weekHours, targetHours, totalSessions, loggedTaskCount, onMarkSessionDone, onOpenSubject }) {
+  const pct = targetHours ? Math.min(100, Math.round((weekHours / targetHours) * 100)) : 0;
+  return (
+    <div>
+      <h1 className="sf-title" style={{ fontSize: 22, fontWeight: 700, margin: "0 0 2px" }}>Good to see you</h1>
+      <p style={{ color: "var(--text-secondary)", fontSize: 13, margin: "0 0 20px" }}>Here's how the week's shaping up.</p>
+      <div style={{ display: "grid", gridTemplateColumns: "1.3fr 1fr", gap: 16, marginBottom: 16 }}>
+        <Card>
+          <div style={{ fontSize: 13, fontWeight: 600, marginBottom: 12, display: "flex", alignItems: "center", gap: 6 }}><Icon name="clock" size={14} /> Today's schedule</div>
+          {todaySessions.length === 0 ? <p style={{ fontSize: 13, color: "var(--text-secondary)" }}>No study sessions scheduled — enjoy the free time.</p> : (
+            <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+              {todaySessions.map((s) => {
+                const subj = subjects.find((x) => x.id === s.subjectId);
+                return (
+                  <div key={s.id} style={{ display: "flex", alignItems: "center", gap: 10, padding: "8px 10px", borderRadius: 10, background: "var(--nav-active)" }}>
+                    <div style={{ width: 4, height: 30, borderRadius: 3, background: subj?.color || AMBER }} />
+                    <div style={{ flex: 1 }}>
+                      <div style={{ fontSize: 12.5, fontWeight: 600, display: "flex", alignItems: "center", gap: 5 }}>{s.mandatory && <Icon name="lock" size={11} />}{s.title}</div>
+                      <div style={{ fontSize: 11, color: "var(--text-secondary)" }}>{subj?.name} · {toHHMM(s.start)}–{toHHMM(s.end)}</div>
+                    </div>
+                    <button onClick={() => onMarkSessionDone(s)} className="sf-btn-ghost" style={{ padding: "4px 8px" }} title="Mark this session done"><Icon name="check" size={13} /></button>
+                  </div>
+                );
+              })}
+            </div>
+          )}
+        </Card>
+        <Card>
+          <div style={{ fontSize: 13, fontWeight: 600, marginBottom: 12 }}>Weekly progress</div>
+          <div className="sf-title" style={{ fontSize: 28, fontWeight: 700 }}>{weekHours}h <span style={{ fontSize: 14, color: "var(--text-secondary)", fontWeight: 500 }}>/ {targetHours}h</span></div>
+          <div style={{ height: 6, background: "var(--nav-active)", borderRadius: 4, margin: "10px 0" }}><div style={{ height: "100%", width: pct + "%", background: AMBER, borderRadius: 4 }} /></div>
+          <div style={{ fontSize: 12, color: "var(--text-secondary)" }}>{totalSessions} sessions this week · {loggedTaskCount} items with progress logged</div>
+        </Card>
+      </div>
+      <div style={{ fontSize: 13, fontWeight: 600, margin: "22px 0 10px" }}>Your subjects <span style={{ fontWeight: 400, color: "var(--text-secondary)" }}>— tap one to see progress and set work</span></div>
+      <div className="sf-grid-4" style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 12 }}>
+        {subjects.map((s) => {
+          const d = daysUntil(s.examDate);
+          const color = d <= 14 ? CAT_COLORS.Exam : d <= 35 ? "#D9822B" : d <= 60 ? "#C7A21B" : CAT_COLORS.Study;
+          const covered = s.topics.length ? Math.round((s.topics.filter((t) => t.done).length / s.topics.length) * 100) : null;
+          return (
+            <Card key={s.id} onClick={() => onOpenSubject(s.id)} style={{ borderColor: color + "55", cursor: "pointer" }}>
+              <div style={{ fontSize: 12, fontWeight: 600, marginBottom: 4 }}>{s.name}</div>
+              <div className="sf-title" style={{ fontSize: 24, fontWeight: 700, color }}>{d}</div>
+              <div style={{ fontSize: 11, color: "var(--text-secondary)", marginBottom: 6 }}>days remaining · {s.examMarks}% weighting</div>
+              {covered !== null ? (
+                <>
+                  <div style={{ height: 4, background: "var(--nav-active)", borderRadius: 3, marginBottom: 4 }}>
+                    <div style={{ height: "100%", width: covered + "%", background: s.color, borderRadius: 3 }} />
+                  </div>
+                  <div style={{ fontSize: 10.5, color: "var(--text-secondary)" }}>{covered}% of syllabus checked off</div>
+                </>
+              ) : <div style={{ height: 4 }} />}
+            </Card>
+          );
+        })}
+        {subjects.length === 0 && <p style={{ fontSize: 13, color: "var(--text-secondary)" }}>No subjects yet — add one from the Subjects tab.</p>}
+      </div>
+    </div>
+  );
+}
+
+/* ---------------------------------------------------------
+   CALENDAR — real multi-week navigation
+--------------------------------------------------------- */
+function CalendarView({ schedule, school, work, events, subjects, weekOffset, setWeekOffset, weekDates }) {
+  const START = 7 * 60, END = 23 * 60, pxPerMin = 0.85;
+  const subjectMap = Object.fromEntries(subjects.map((s) => [s.id, s]));
+  function blocksFor(iso, dayIdx) {
+    const list = [];
+    school.filter((b) => b.day === dayIdx).forEach((b) => list.push({ start: b.start, end: b.end, type: "School", label: "School" }));
+    work.filter((b) => b.day === dayIdx).forEach((b) => list.push({ ...b, type: "Work", label: "Work" }));
+    events.filter((b) => b.day === dayIdx).forEach((b) => list.push({ ...b, type: b.type, label: b.title }));
+    (schedule[iso] || []).forEach((s) => list.push({ start: toHHMM(s.start), end: toHHMM(s.end), type: "Study", label: `${s.mandatory ? "🔒 " : ""}${subjectMap[s.subjectId]?.name}: ${s.title}` }));
+    return list;
+  }
+  const todayIso = todayStr();
+  return (
+    <div>
+      <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 4 }}>
+        <h1 className="sf-title" style={{ fontSize: 20, fontWeight: 700, margin: 0 }}>{fmtShort(new Date(weekDates[0]))} – {fmtShort(new Date(weekDates[6]))}</h1>
+        <button className="sf-btn-tiny" onClick={() => setWeekOffset((w) => w - 1)}><Icon name="left" size={12} /></button>
+        <button className="sf-btn-tiny" onClick={() => setWeekOffset((w) => w + 1)}><Icon name="right" size={12} /></button>
+        {weekOffset !== 0 && <button className="sf-btn-ghost" onClick={() => setWeekOffset(0)}>This week</button>}
+      </div>
+      <p style={{ fontSize: 12, color: "var(--text-secondary)", marginBottom: 12 }}>🔒 marks non-negotiable syllabus work. Rebuilds automatically whenever anything changes.</p>
+      <div style={{ display: "flex", gap: 12, marginBottom: 14, flexWrap: "wrap" }}>
+        {Object.entries(CAT_COLORS).filter(([k]) => k !== "Break").map(([k, c]) => <span key={k} style={{ fontSize: 11, display: "flex", alignItems: "center", gap: 5, color: "var(--text-secondary)" }}><span style={{ width: 8, height: 8, borderRadius: 2, background: c }} /> {k}</span>)}
+      </div>
+      <div style={{ display: "flex", gap: 8 }}>
+        <div style={{ width: 34, flexShrink: 0 }}>
+          <div style={{ height: 23.5 }} />
+          <div style={{ position: "relative", height: (END - START) * pxPerMin }}>
+            {Array.from({ length: Math.floor(END / 60) - Math.ceil(START / 60) + 1 }, (_, i) => Math.ceil(START / 60) + i).map((h) => (
+              <div key={h} style={{ position: "absolute", top: (h * 60 - START) * pxPerMin - 5, fontSize: 9.5, color: "var(--text-secondary)" }}>
+                {h % 12 === 0 ? 12 : h % 12}{h < 12 || h === 24 ? "am" : "pm"}
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="sf-grid-7" style={{ display: "grid", gridTemplateColumns: "repeat(7, 1fr)", gap: 8, flex: 1 }}>
+        {weekDates.map((iso, i) => {
+          const d = new Date(iso);
+          return (
+            <div key={iso}>
+              <div style={{ fontSize: 11.5, fontWeight: 600, marginBottom: 6, color: iso === todayIso ? AMBER : "var(--text-secondary)" }}>{DAY_LABELS[i]} {fmtShort(d)}</div>
+              <div style={{ position: "relative", height: (END - START) * pxPerMin, borderRadius: 10, background: "var(--card)", border: "1px solid var(--border)", overflow: "hidden" }}>
+                {blocksFor(iso, i).map((b, j) => {
+                  const s = toMin(b.start) - START, e = toMin(b.end) - START;
+                  if (e < 0 || s > END - START) return null;
+                  const color = CAT_COLORS[b.type] || CAT_COLORS.Personal;
+                  return <div key={j} title={b.label} style={{ position: "absolute", top: Math.max(0, s) * pxPerMin, height: Math.max(14, (e - s) * pxPerMin), left: 3, right: 3, background: color + "26", borderLeft: `3px solid ${color}`, borderRadius: 5, fontSize: 9.5, padding: "2px 4px", overflow: "hidden" }}>{b.label}</div>;
+                })}
+              </div>
+            </div>
+          );
+        })}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ---------------------------------------------------------
+   SUBJECTS LIST
+--------------------------------------------------------- */
+function SubjectsView({ subjects, addSubject, onOpen }) {
+  const [form, setForm] = useState({ name: "", examDate: "", examMarks: 25 });
+  return (
+    <div>
+      <h1 className="sf-title" style={{ fontSize: 20, fontWeight: 700, marginBottom: 4 }}>Subjects</h1>
+      <p style={{ fontSize: 12.5, color: "var(--text-secondary)", marginBottom: 16 }}>Tap a subject to check your progress and set the work for it.</p>
+      <div className="sf-grid-4" style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 12, marginBottom: 20 }}>
+        {subjects.map((s) => {
+          const covered = s.topics.length ? Math.round((s.topics.filter((t) => t.done).length / s.topics.length) * 100) : null;
+          return (
+            <Card key={s.id} onClick={() => onOpen(s.id)} style={{ cursor: "pointer" }}>
+              <div style={{ width: 22, height: 4, borderRadius: 3, background: s.color, marginBottom: 8 }} />
+              <div style={{ fontSize: 13, fontWeight: 600, marginBottom: 4 }}>{s.name}</div>
+              <div style={{ fontSize: 11, color: "var(--text-secondary)" }}>{daysUntil(s.examDate)} days to exam · {s.examMarks}% weighting</div>
+              {covered !== null ? <div style={{ fontSize: 11, color: "var(--text-secondary)", marginTop: 4 }}>{covered}% syllabus checked off</div> : <div style={{ fontSize: 11, color: "var(--text-secondary)", marginTop: 4 }}>No syllabus topics loaded</div>}
+            </Card>
+          );
+        })}
+      </div>
+      <Card style={{ maxWidth: 460 }}>
+        <div style={{ fontSize: 12.5, fontWeight: 600, marginBottom: 10, display: "flex", alignItems: "center", gap: 6 }}><Icon name="plus" size={14} /> Add a subject</div>
+        <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+          <input className="sf-input" placeholder="Subject name" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} />
+          <Field label="External exam date"><input className="sf-input" type="date" min={todayStr()} value={form.examDate} onChange={(e) => setForm({ ...form, examDate: e.target.value })} /></Field>
+          <Field label="Weighting (% or marks of external)"><input className="sf-input" type="number" style={{ width: 90 }} value={form.examMarks} onChange={(e) => setForm({ ...form, examMarks: Number(e.target.value) })} /></Field>
+          <button className="sf-btn" style={{ alignSelf: "flex-start" }} onClick={() => { if (form.name.trim() && form.examDate) { addSubject(form); setForm({ name: "", examDate: "", examMarks: 25 }); } }}>Add subject</button>
+        </div>
+      </Card>
+    </div>
+  );
+}
+
+/* ---------------------------------------------------------
+   SUBJECT DETAIL
+--------------------------------------------------------- */
+function SubjectDetailView({ subject, tasks, mandatoryTasks, completedMinutesByTask, addTask, removeTask, adjustTaskDuration, markTaskDone, toggleTopicDone, addTopic, removeTopic, practiceTests, addPracticeTest, removePracticeTest, preExamBufferDays, onBack, onDelete }) {
+  const [taskForm, setTaskForm] = useState({ title: "", duration: 45, priority: "Medium", dueInDays: 5, difficulty: "Medium", type: "Revision" });
+  const [pForm, setPForm] = useState({ label: "", score: "", maxScore: 100 });
+  const [topicForm, setTopicForm] = useState({ unit: "Custom", topic: "", subtopic: "", hours: 2 });
+  const [confirmDelete, setConfirmDelete] = useState(false);
+  const [showAddTopic, setShowAddTopic] = useState(false);
+
+  const activeTasks = tasks.filter((t) => taskRemaining(t, completedMinutesByTask) > 0);
+  const doneTasks = tasks.filter((t) => taskRemaining(t, completedMinutesByTask) <= 0);
+  const totalMinutesLogged = [...tasks, ...mandatoryTasks].reduce((a, t) => a + (completedMinutesByTask[t.id] || 0), 0);
+  const hoursLogged = Math.round((totalMinutesLogged / 60) * 10) / 10;
+  const covered = subject.topics.length ? Math.round((subject.topics.filter((t) => t.done).length / subject.topics.length) * 100) : null;
+  const units = [...new Set(subject.topics.map((t) => t.unit))];
+  const bufferCutoff = Math.max(0, daysUntil(subject.examDate) - (preExamBufferDays ?? 30));
+
+  return (
+    <div>
+      <button className="sf-btn-ghost" onClick={onBack} style={{ display: "flex", alignItems: "center", gap: 6, marginBottom: 14 }}><Icon name="back" size={13} /> All subjects</button>
+      <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 4 }}>
+        <span style={{ width: 12, height: 12, borderRadius: 4, background: subject.color, display: "inline-block" }} />
+        <h1 className="sf-title" style={{ fontSize: 22, fontWeight: 700, margin: 0 }}>{subject.name}</h1>
+      </div>
+      <p style={{ fontSize: 12.5, color: "var(--text-secondary)", marginBottom: 6 }}>Exam on {subject.examDate} · {daysUntil(subject.examDate)} days away · {subject.examMarks}% of your external weighting</p>
+      {subject.topics.length > 0 && <p style={{ fontSize: 11.5, color: "var(--text-secondary)", marginBottom: 18 }}><Icon name="lock" size={11} /> All un-checked syllabus topics below are non-negotiable — they're auto-queued onto your calendar with a hard target of being covered by {bufferCutoff} days from now, {preExamBufferDays ?? 30} days out from the exam.</p>}
+
+      <div className="sf-grid-4" style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 12, marginBottom: 18 }}>
+        <Card><div style={{ fontSize: 11, color: "var(--text-secondary)" }}>Confidence</div><div className="sf-title" style={{ fontSize: 20, fontWeight: 700 }}>{subject.confidence}/10</div></Card>
+        <Card><div style={{ fontSize: 11, color: "var(--text-secondary)" }}>Hours logged</div><div className="sf-title" style={{ fontSize: 20, fontWeight: 700 }}>{hoursLogged}h</div></Card>
+        <Card><div style={{ fontSize: 11, color: "var(--text-secondary)" }}>Optional tasks open</div><div className="sf-title" style={{ fontSize: 20, fontWeight: 700 }}>{activeTasks.length}</div></Card>
+        <Card><div style={{ fontSize: 11, color: "var(--text-secondary)" }}>Syllabus covered</div><div className="sf-title" style={{ fontSize: 20, fontWeight: 700 }}>{covered === null ? "—" : covered + "%"}</div></Card>
+      </div>
+
+      <Card style={{ marginBottom: 16 }}>
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 10 }}>
+          <div style={{ fontSize: 12.5, fontWeight: 600 }}>Syllabus checklist <span style={{ fontWeight: 400, color: "var(--text-secondary)" }}>— non-negotiable until checked off</span></div>
+          <button className="sf-btn-tiny" onClick={() => setShowAddTopic((v) => !v)}>{showAddTopic ? "Cancel" : "+ Add topic"}</button>
+        </div>
+        {showAddTopic && (
+          <div style={{ display: "flex", gap: 6, flexWrap: "wrap", marginBottom: 12, padding: 8, borderRadius: 8, background: "var(--nav-active)" }}>
+            <input className="sf-input" placeholder="Unit / grouping" style={{ width: 110 }} value={topicForm.unit} onChange={(e) => setTopicForm({ ...topicForm, unit: e.target.value })} />
+            <input className="sf-input" placeholder="Topic" style={{ width: 130 }} value={topicForm.topic} onChange={(e) => setTopicForm({ ...topicForm, topic: e.target.value })} />
+            <input className="sf-input" placeholder="Sub-topic / dot point" style={{ flex: 1, minWidth: 150 }} value={topicForm.subtopic} onChange={(e) => setTopicForm({ ...topicForm, subtopic: e.target.value })} />
+            <input className="sf-input" type="number" placeholder="Hours" style={{ width: 70 }} value={topicForm.hours} onChange={(e) => setTopicForm({ ...topicForm, hours: Number(e.target.value) })} />
+            <button className="sf-btn-tiny" onClick={() => { if (topicForm.subtopic.trim()) { addTopic(topicForm); setTopicForm({ unit: "Custom", topic: "", subtopic: "", hours: 2 }); setShowAddTopic(false); } }}>Add</button>
+          </div>
+        )}
+        {subject.topics.length === 0 && <p style={{ fontSize: 12.5, color: "var(--text-secondary)" }}>No syllabus topics loaded for this subject yet — add your own dot points above.</p>}
+        {units.map((unit) => (
+          <div key={unit} style={{ marginBottom: 12 }}>
+            <div style={{ fontSize: 11.5, fontWeight: 700, color: "var(--text-secondary)", marginBottom: 6 }}>{unit}</div>
+            <div style={{ display: "flex", flexDirection: "column", gap: 5 }}>
+              {subject.topics.filter((t) => t.unit === unit).map((t) => {
+                const logged = completedMinutesByTask[t.id] || 0;
+                const capMin = Math.min(t.hours * 60, 360);
+                const pct = capMin ? Math.min(100, Math.round((logged / capMin) * 100)) : 0;
+                return (
+                  <div key={t.id} style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 12, padding: "5px 8px", borderRadius: 8, background: t.done ? "var(--nav-active)" : "transparent" }}>
+                    <button onClick={() => toggleTopicDone(t.id)} className="sf-btn-tiny" style={{ padding: "2px 6px", background: t.done ? subject.color : "transparent", color: t.done ? "white" : "var(--text-primary)", borderColor: t.done ? subject.color : "var(--border)" }}>
+                      <Icon name="check" size={10} />
+                    </button>
+                    <span style={{ flex: 1, textDecoration: t.done ? "line-through" : "none", color: t.done ? "var(--text-secondary)" : "var(--text-primary)" }}>{t.topic} — {t.subtopic}</span>
+                    {!t.done && pct > 0 && <span style={{ fontSize: 10.5, color: "var(--text-secondary)" }}>{pct}% scheduled</span>}
+                    <button onClick={() => removeTopic(t.id)} className="sf-btn-ghost" style={{ padding: "2px 6px" }}><Icon name="x" size={10} /></button>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        ))}
+      </Card>
+
+      <Card style={{ marginBottom: 16 }}>
+        <div style={{ fontSize: 12.5, fontWeight: 600, marginBottom: 10 }}>Quick add optional/extra work</div>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(110px,1fr))", gap: 8 }}>
+          <input className="sf-input" placeholder="Task title" value={taskForm.title} onChange={(e) => setTaskForm({ ...taskForm, title: e.target.value })} style={{ gridColumn: "span 2" }} />
+          <input className="sf-input" type="number" placeholder="Minutes" value={taskForm.duration} onChange={(e) => setTaskForm({ ...taskForm, duration: Number(e.target.value) })} />
+          <select className="sf-select" value={taskForm.priority} onChange={(e) => setTaskForm({ ...taskForm, priority: e.target.value })}><option>Low</option><option>Medium</option><option>High</option></select>
+          <input className="sf-input" type="number" min="0" placeholder="Due in days" value={taskForm.dueInDays} onChange={(e) => setTaskForm({ ...taskForm, dueInDays: Math.max(0, Number(e.target.value)) })} />
+        </div>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(110px,1fr))", gap: 8, marginTop: 8 }}>
+          <select className="sf-select" value={taskForm.type} onChange={(e) => setTaskForm({ ...taskForm, type: e.target.value })}>{["Revision", "Practice questions", "Past paper", "Reading", "Flashcards", "Essay", "Practical"].map((t) => <option key={t}>{t}</option>)}</select>
+          <select className="sf-select" value={taskForm.difficulty} onChange={(e) => setTaskForm({ ...taskForm, difficulty: e.target.value })}><option>Easy</option><option>Medium</option><option>Hard</option></select>
+          <div style={{ gridColumn: "span 2", display: "flex", justifyContent: "flex-end" }}>
+            <button className="sf-btn" onClick={() => { if (taskForm.title.trim()) { addTask(taskForm); setTaskForm({ ...taskForm, title: "" }); } }}><Icon name="plus" size={13} /> Add task</button>
+          </div>
+        </div>
+      </Card>
+
+      <div style={{ fontSize: 12.5, fontWeight: 600, marginBottom: 8 }}>Optional / extra tasks</div>
+      <div style={{ display: "flex", flexDirection: "column", gap: 8, marginBottom: 16 }}>
+        {activeTasks.length === 0 && <p style={{ fontSize: 12.5, color: "var(--text-secondary)" }}>Nothing extra queued — the syllabus checklist above covers your non-negotiable work.</p>}
+        {activeTasks.map((t) => {
+          const remaining = taskRemaining(t, completedMinutesByTask);
+          const loggedPct = t.duration ? Math.round(((t.duration - remaining) / t.duration) * 100) : 0;
+          return (
+            <Card key={t.id} style={{ padding: "10px 14px" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+                <div style={{ flex: 1 }}>
+                  <div style={{ fontSize: 13, fontWeight: 600 }}>{t.title}</div>
+                  <div style={{ fontSize: 11, color: "var(--text-secondary)" }}>{t.type} · {remaining} min left of {t.duration} · due in {t.dueInDays}d {loggedPct > 0 ? `· ${loggedPct}% logged` : ""}</div>
+                </div>
+                <Pill label={t.priority} color={t.priority === "High" ? CAT_COLORS.Exam : t.priority === "Medium" ? AMBER : CAT_COLORS.Study} />
+              </div>
+              <div style={{ display: "flex", alignItems: "center", gap: 6, marginTop: 8 }}>
+                <span style={{ fontSize: 10.5, color: "var(--text-secondary)" }}>Behind or need more time?</span>
+                <button className="sf-btn-tiny" onClick={() => adjustTaskDuration(t.id, 15)}>+15m</button>
+                <span style={{ fontSize: 10.5, color: "var(--text-secondary)" }}>Ahead of schedule?</span>
+                <button className="sf-btn-tiny" onClick={() => adjustTaskDuration(t.id, -15)}>−15m</button>
+                <div style={{ flex: 1 }} />
+                <button className="sf-btn-tiny" onClick={() => markTaskDone(t.id)}>Mark fully done</button>
+                <button onClick={() => removeTask(t.id)} className="sf-btn-ghost" style={{ padding: "3px 7px" }}><Icon name="trash" size={12} /></button>
+              </div>
+            </Card>
+          );
+        })}
+        {doneTasks.length > 0 && (
+          <details style={{ marginTop: 6 }}>
+            <summary style={{ fontSize: 11.5, color: "var(--text-secondary)", cursor: "pointer" }}>{doneTasks.length} completed</summary>
+            <div style={{ display: "flex", flexDirection: "column", gap: 6, marginTop: 8 }}>
+              {doneTasks.map((t) => (
+                <div key={t.id} style={{ display: "flex", alignItems: "center", gap: 10, fontSize: 12, color: "var(--text-secondary)" }}>
+                  <span style={{ textDecoration: "line-through", flex: 1 }}>{t.title}</span>
+                  <button onClick={() => removeTask(t.id)} className="sf-btn-ghost" style={{ padding: "3px 7px" }}><Icon name="trash" size={11} /></button>
+                </div>
+              ))}
+            </div>
+          </details>
+        )}
+      </div>
+
+      <Card style={{ marginBottom: 16 }}>
+        <div style={{ fontSize: 12.5, fontWeight: 600, marginBottom: 4 }}>Practice test results</div>
+        <div style={{ fontSize: 11.5, color: "var(--text-secondary)", marginBottom: 10 }}>Confidence above is the average of what you log here.</div>
+        <div style={{ display: "flex", flexDirection: "column", gap: 6, marginBottom: 10 }}>
+          {practiceTests.length === 0 && <div style={{ fontSize: 12, color: "var(--text-secondary)" }}>No results logged yet.</div>}
+          {practiceTests.map((t) => (
+            <div key={t.id} style={{ display: "flex", alignItems: "center", gap: 10, fontSize: 12.5 }}>
+              <span style={{ color: "var(--text-secondary)" }}>{t.label || "Practice test"}</span>
+              <span style={{ marginLeft: "auto", fontWeight: 600 }}>{t.score}/{t.maxScore} ({Math.round((t.score / t.maxScore) * 100)}%)</span>
+              <button onClick={() => removePracticeTest(t.id)} className="sf-btn-ghost" style={{ padding: "3px 7px" }}><Icon name="x" size={12} /></button>
+            </div>
+          ))}
+        </div>
+        <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
+          <input className="sf-input" placeholder="Test name (optional)" value={pForm.label} onChange={(e) => setPForm({ ...pForm, label: e.target.value })} />
+          <input className="sf-input" type="number" placeholder="Score" style={{ width: 90 }} value={pForm.score} onChange={(e) => setPForm({ ...pForm, score: e.target.value })} />
+          <input className="sf-input" type="number" placeholder="Out of" style={{ width: 90 }} value={pForm.maxScore} onChange={(e) => setPForm({ ...pForm, maxScore: e.target.value })} />
+          <button className="sf-btn" onClick={() => { const score = Number(pForm.score), maxScore = Number(pForm.maxScore); if (score >= 0 && maxScore > 0) { addPracticeTest({ label: pForm.label, score, maxScore }); setPForm({ label: "", score: "", maxScore: 100 }); } }}>Add result</button>
+        </div>
+      </Card>
+
+      <Card style={{ borderColor: CAT_COLORS.Exam + "55" }}>
+        {!confirmDelete ? (
+          <button className="sf-btn-ghost" onClick={() => setConfirmDelete(true)}>Delete this subject</button>
+        ) : (
+          <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+            <span style={{ fontSize: 12.5 }}>Delete {subject.name} and all its tasks? This can't be undone.</span>
+            <button className="sf-btn" style={{ background: CAT_COLORS.Exam }} onClick={onDelete}>Yes, delete</button>
+            <button className="sf-btn-ghost" onClick={() => setConfirmDelete(false)}>Cancel</button>
+          </div>
+        )}
+      </Card>
+    </div>
+  );
+}
+
+/* ---------------------------------------------------------
+   SETUP
+--------------------------------------------------------- */
+function SetupView({ school, setSchool, work, setWork, events, setEvents }) {
+  const [sForm, setSForm] = useState({ day: 0, start: "08:45", end: "15:00" });
+  const [wForm, setWForm] = useState({ day: 0, start: "17:00", end: "21:00" });
+  const [eForm, setEForm] = useState({ day: 0, start: "17:00", end: "18:00", title: "", type: "Sport" });
+  return (
+    <div>
+      <h1 className="sf-title" style={{ fontSize: 20, fontWeight: 700, marginBottom: 14 }}>Setup</h1>
+      <Card style={{ marginBottom: 16 }}>
+        <div style={{ fontSize: 12.5, fontWeight: 600, marginBottom: 10, display: "flex", alignItems: "center", gap: 6 }}><Icon name="grad" size={14} /> School timetable <span style={{ fontWeight: 400, color: "var(--text-secondary)" }}>— repeats every week</span></div>
+        <div style={{ display: "flex", flexDirection: "column", gap: 6, marginBottom: 10 }}>
+          {school.map((b) => (
+            <div key={b.id} style={{ display: "flex", alignItems: "center", gap: 10, fontSize: 12.5 }}>
+              <span style={{ width: 40, fontWeight: 600 }}>{DAY_LABELS[b.day]}</span>
+              <span style={{ color: "var(--text-secondary)" }}>{b.start} – {b.end}</span>
+              <button onClick={() => setSchool(school.filter((x) => x.id !== b.id))} className="sf-btn-ghost" style={{ padding: "3px 7px", marginLeft: "auto" }}><Icon name="x" size={12} /></button>
+            </div>
+          ))}
+        </div>
+        <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
+          <select className="sf-select" value={sForm.day} onChange={(e) => setSForm({ ...sForm, day: Number(e.target.value) })}>{DAY_LABELS.map((d, i) => <option key={d} value={i}>{d}</option>)}</select>
+          <input className="sf-input" type="time" value={sForm.start} onChange={(e) => setSForm({ ...sForm, start: e.target.value })} />
+          <input className="sf-input" type="time" value={sForm.end} onChange={(e) => setSForm({ ...sForm, end: e.target.value })} />
+          <button className="sf-btn" onClick={() => setSchool([...school, { ...sForm, id: "s" + Date.now() }])}>Add day</button>
+        </div>
+      </Card>
+      <Card style={{ marginBottom: 16 }}>
+        <div style={{ fontSize: 12.5, fontWeight: 600, marginBottom: 10, display: "flex", alignItems: "center", gap: 6 }}><Icon name="briefcase" size={14} /> Work shifts <span style={{ fontWeight: 400, color: "var(--text-secondary)" }}>— re-enter each Thursday</span></div>
+        <div style={{ display: "flex", flexDirection: "column", gap: 6, marginBottom: 10 }}>
+          {work.map((b) => (
+            <div key={b.id} style={{ display: "flex", alignItems: "center", gap: 10, fontSize: 12.5 }}>
+              <span style={{ width: 40, fontWeight: 600 }}>{DAY_LABELS[b.day]}</span>
+              <span style={{ color: "var(--text-secondary)" }}>{b.start} – {b.end}</span>
+              <button onClick={() => setWork(work.filter((x) => x.id !== b.id))} className="sf-btn-ghost" style={{ padding: "3px 7px", marginLeft: "auto" }}><Icon name="x" size={12} /></button>
+            </div>
+          ))}
+        </div>
+        <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
+          <select className="sf-select" value={wForm.day} onChange={(e) => setWForm({ ...wForm, day: Number(e.target.value) })}>{DAY_LABELS.map((d, i) => <option key={d} value={i}>{d}</option>)}</select>
+          <input className="sf-input" type="time" value={wForm.start} onChange={(e) => setWForm({ ...wForm, start: e.target.value })} />
+          <input className="sf-input" type="time" value={wForm.end} onChange={(e) => setWForm({ ...wForm, end: e.target.value })} />
+          <button className="sf-btn" onClick={() => setWork([...work, { ...wForm, id: "w" + Date.now() }])}>Add shift</button>
+        </div>
+      </Card>
+      <Card>
+        <div style={{ fontSize: 12.5, fontWeight: 600, marginBottom: 10, display: "flex", alignItems: "center", gap: 6 }}><Icon name="dumbbell" size={14} /> Other events</div>
+        <div style={{ display: "flex", flexDirection: "column", gap: 6, marginBottom: 10 }}>
+          {events.map((b) => (
+            <div key={b.id} style={{ display: "flex", alignItems: "center", gap: 10, fontSize: 12.5 }}>
+              <span style={{ width: 40, fontWeight: 600 }}>{DAY_LABELS[b.day]}</span>
+              <span>{b.title}</span>
+              <span style={{ color: "var(--text-secondary)" }}>{b.start} – {b.end}</span>
+              <button onClick={() => setEvents(events.filter((x) => x.id !== b.id))} className="sf-btn-ghost" style={{ padding: "3px 7px", marginLeft: "auto" }}><Icon name="x" size={12} /></button>
+            </div>
+          ))}
+        </div>
+        <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
+          <select className="sf-select" value={eForm.day} onChange={(e) => setEForm({ ...eForm, day: Number(e.target.value) })}>{DAY_LABELS.map((d, i) => <option key={d} value={i}>{d}</option>)}</select>
+          <input className="sf-input" placeholder="Title" value={eForm.title} onChange={(e) => setEForm({ ...eForm, title: e.target.value })} />
+          <input className="sf-input" type="time" value={eForm.start} onChange={(e) => setEForm({ ...eForm, start: e.target.value })} />
+          <input className="sf-input" type="time" value={eForm.end} onChange={(e) => setEForm({ ...eForm, end: e.target.value })} />
+          <select className="sf-select" value={eForm.type} onChange={(e) => setEForm({ ...eForm, type: e.target.value })}>{["Sport", "Personal"].map((t) => <option key={t}>{t}</option>)}</select>
+          <button className="sf-btn" onClick={() => { if (eForm.title.trim()) setEvents([...events, { ...eForm, id: "e" + Date.now() }]); }}>Add event</button>
+        </div>
+      </Card>
+    </div>
+  );
+}
+
+/* ---------------------------------------------------------
+   ANALYTICS
+--------------------------------------------------------- */
+function AnalyticsView({ subjects, schedule, weekDates, allTasks, completedMinutesByTask, totalSessions, streakDisplay }) {
+  const hoursBySubject = subjects.map((s) => {
+    const mins = weekDates.reduce((sum, iso) => sum + (schedule[iso] || []).filter((sess) => sess.subjectId === s.id).reduce((a, b) => a + (b.end - b.start), 0), 0);
+    return { label: s.name.split(" ")[0], value: Math.round((mins / 60) * 10) / 10, color: s.color };
+  });
+  const confidenceData = subjects.map((s) => ({ label: s.name.split(" ")[0], value: s.confidence }));
+  const totalLoggedMin = allTasks.reduce((a, t) => a + (completedMinutesByTask[t.id] || 0), 0);
+  const totalTargetMin = allTasks.reduce((a, t) => a + t.duration, 0);
+  const completionRate = totalTargetMin ? Math.round((totalLoggedMin / totalTargetMin) * 100) : 0;
+  return (
+    <div>
+      <h1 className="sf-title" style={{ fontSize: 20, fontWeight: 700, marginBottom: 14 }}>Analytics</h1>
+      <div className="sf-grid-4" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 12, marginBottom: 18 }}>
+        <Card><div style={{ fontSize: 11, color: "var(--text-secondary)" }}>Overall completion</div><div className="sf-title" style={{ fontSize: 22, fontWeight: 700 }}>{completionRate}%</div></Card>
+        <Card><div style={{ fontSize: 11, color: "var(--text-secondary)" }}>Sessions this week</div><div className="sf-title" style={{ fontSize: 22, fontWeight: 700 }}>{totalSessions}</div></Card>
+        <Card><div style={{ fontSize: 11, color: "var(--text-secondary)" }}>Study streak</div><div className="sf-title" style={{ fontSize: 22, fontWeight: 700 }}>{streakDisplay} {streakDisplay === 1 ? "day" : "days"}</div></Card>
+      </div>
+      <Card style={{ marginBottom: 16 }}>
+        <div style={{ fontSize: 12.5, fontWeight: 600, marginBottom: 10 }}>Hours by subject this week</div>
+        <MiniBarChart data={hoursBySubject} />
+      </Card>
+      <Card>
+        <div style={{ fontSize: 12.5, fontWeight: 600, marginBottom: 10 }}>Confidence by subject</div>
+        <MiniRadar data={confidenceData} />
+      </Card>
+    </div>
+  );
+}
+
+/* ---------------------------------------------------------
+   AI ASSISTANT
+--------------------------------------------------------- */
+function AssistantView({ askAssistant, answer }) {
+  const prompts = [
+    { id: "tonight", label: "What should I study tonight?" },
+    { id: "prioritise", label: "What should I prioritise?" },
+    { id: "90min", label: "I only have 90 minutes today" },
+    { id: "reschedule", label: "Reschedule this week's tasks" },
+  ];
+  return (
+    <div>
+      <h1 className="sf-title" style={{ fontSize: 20, fontWeight: 700, marginBottom: 4 }}>AI planning assistant</h1>
+      <p style={{ fontSize: 12.5, color: "var(--text-secondary)", marginBottom: 16 }}>Ask about tonight's plan, priorities, or a quick reshuffle.</p>
+      <div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginBottom: 16 }}>
+        {prompts.map((p) => <button key={p.id} className="sf-btn-ghost" onClick={() => askAssistant(p.id)} style={{ display: "flex", alignItems: "center", gap: 6 }}>{p.label} <Icon name="chevron" size={12} /></button>)}
+      </div>
+      {answer && <Card><div style={{ fontSize: 13, whiteSpace: "pre-line", lineHeight: 1.6 }}>{answer}</div></Card>}
+    </div>
+  );
+}
+
+/* ---------------------------------------------------------
+   SETTINGS
+--------------------------------------------------------- */
+function SettingsView({ settings, setSettings, syncPin, syncStatus, connectSync, disconnectSync, generateSyncCode }) {
+  function set(k, v) { setSettings({ ...settings, [k]: v }); }
+  const [pinInput, setPinInput] = useState("");
+  return (
+    <div>
+      <h1 className="sf-title" style={{ fontSize: 20, fontWeight: 700, marginBottom: 14 }}>Settings</h1>
+      <Card style={{ maxWidth: 440, marginBottom: 16 }}>
+        <div style={{ fontSize: 12.5, fontWeight: 600, marginBottom: 10 }}>Study hours</div>
+        <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
+          <Field label="Weekly study hours target"><input className="sf-input" type="number" style={{ width: 90 }} value={settings.weeklyStudyHours} onChange={(e) => set("weeklyStudyHours", Number(e.target.value))} /></Field>
+          <Field label="Max daily study hours"><input className="sf-input" type="number" style={{ width: 90 }} value={settings.maxDailyStudyHours} onChange={(e) => set("maxDailyStudyHours", Number(e.target.value))} /></Field>
+          <Field label="Study block length (min)"><input className="sf-input" type="number" style={{ width: 90 }} value={settings.blockLength} onChange={(e) => set("blockLength", Number(e.target.value))} /></Field>
+          <Field label="Break length (min)"><input className="sf-input" type="number" style={{ width: 90 }} value={settings.breakLength} onChange={(e) => set("breakLength", Number(e.target.value))} /></Field>
+        </div>
+      </Card>
+      <Card style={{ maxWidth: 440, marginBottom: 16 }}>
+        <div style={{ fontSize: 12.5, fontWeight: 600, marginBottom: 10 }}>Time boundaries</div>
+        <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
+          <Field label="Wake time"><input className="sf-input" type="time" value={settings.wake} onChange={(e) => set("wake", e.target.value)} /></Field>
+          <Field label="Bedtime"><input className="sf-input" type="time" value={settings.bedtime} onChange={(e) => set("bedtime", e.target.value)} /></Field>
+          <Field label="Buffer around school/work/events (min)"><input className="sf-input" type="number" style={{ width: 90 }} value={settings.eventBufferMin} onChange={(e) => set("eventBufferMin", Number(e.target.value))} /></Field>
+          <Field label="Buffer before bedtime (min)"><input className="sf-input" type="number" style={{ width: 90 }} value={settings.bedtimeBufferMin} onChange={(e) => set("bedtimeBufferMin", Number(e.target.value))} /></Field>
+        </div>
+        <p style={{ fontSize: 11, color: "var(--text-secondary)", marginTop: 10 }}>Study is never scheduled before your wake time (never before 5am, even if a saved value says otherwise), inside the buffer around school/work/events, in the buffer before bed, or earlier than right now on today's date. The break length above is separate — it only spaces out back-to-back study blocks.</p>
+      </Card>
+      <Card style={{ maxWidth: 440, marginBottom: 16 }}>
+        <div style={{ fontSize: 12.5, fontWeight: 600, marginBottom: 10 }}>Non-negotiable syllabus buffer</div>
+        <Field label="Days before exam all topics must be checked off"><input className="sf-input" type="number" style={{ width: 90 }} value={settings.preExamBufferDays} onChange={(e) => set("preExamBufferDays", Number(e.target.value))} /></Field>
+        <p style={{ fontSize: 11, color: "var(--text-secondary)", marginTop: 10 }}>Un-checked syllabus topics are auto-queued to finish this many days before each subject's exam, leaving that window free for pure revision.</p>
+      </Card>
+      <Card style={{ maxWidth: 440 }}>
+        <div style={{ fontSize: 12.5, fontWeight: 600, marginBottom: 4 }}>Sync across devices</div>
+        {!firebaseReady ? (
+          <div style={{ fontSize: 12, color: "var(--text-secondary)", lineHeight: 1.6 }}>Not set up — add your Firebase config in the code to enable syncing between devices.</div>
+        ) : syncPin ? (
+          <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+            <div style={{ fontSize: 12, color: "var(--text-secondary)" }}>Status: <strong style={{ color: "var(--text-primary)" }}>{syncStatus === "synced" ? "Synced" : syncStatus === "connecting" ? "Connecting…" : "Error — check your Firebase config"}</strong></div>
+            <div style={{ fontSize: 12, color: "var(--text-secondary)" }}>Your sync code:</div>
+            <div className="sf-title" style={{ fontSize: 22, fontWeight: 700, letterSpacing: 2 }}>{syncPin}</div>
+            <div style={{ fontSize: 11.5, color: "var(--text-secondary)" }}>Enter this same code on your other device to link it.</div>
+            <button className="sf-btn-ghost" style={{ alignSelf: "flex-start" }} onClick={disconnectSync}>Stop syncing this device</button>
+          </div>
+        ) : (
+          <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+            <div style={{ fontSize: 12, color: "var(--text-secondary)", lineHeight: 1.6 }}>Generate a code on this device, then enter the same code on your other device to keep them in sync.</div>
+            <button className="sf-btn" style={{ alignSelf: "flex-start" }} onClick={generateSyncCode}>Generate sync code</button>
+            <div style={{ display: "flex", gap: 8, marginTop: 4 }}>
+              <input className="sf-input" placeholder="Or enter existing code" value={pinInput} onChange={(e) => setPinInput(e.target.value.toUpperCase())} style={{ flex: 1 }} />
+              <button className="sf-btn-ghost" onClick={() => { if (pinInput.trim()) connectSync(pinInput.trim()); }}>Connect</button>
+            </div>
+          </div>
+        )}
+      </Card>
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<StudyFlow />);
+</script>
+</body>
+</html>
